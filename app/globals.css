@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f5f6f7;
+  --foreground: #39404a;
+  --muted: #777777;
+  --brand: #65b01b;
+  --brand-dark: #072f17;
+  --accent: #ffab10;
+  --orange: #f87723;
+  --border: #e8e8e8;
+  --surface: #ffffff;
+  --green-chalk: #ddffd5;
+  --intro-bg: #f8fffa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(101, 176, 27, 0.08), transparent 32rem),
+    linear-gradient(180deg, #ffffff 0%, var(--background) 34rem);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.container {
+  width: min(1180px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.focus-ring:focus-visible {
+  outline: 3px solid rgba(31, 122, 63, 0.35);
+  outline-offset: 3px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.shadow-soft {
+  box-shadow: 0 18px 45px rgba(57, 64, 74, 0.09);
+}
+
+.brand-gradient {
+  background:
+    linear-gradient(135deg, rgba(101, 176, 27, 0.95), rgba(17, 183, 107, 0.92)),
+    radial-gradient(circle at 80% 20%, rgba(255, 171, 16, 0.45), transparent 18rem);
+}
+
+.pill {
+  border-radius: 999px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: min(100% - 24px, 1180px);
+  }
+}
