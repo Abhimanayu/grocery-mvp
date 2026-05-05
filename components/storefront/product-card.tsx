@@ -26,16 +26,16 @@ export function ProductCard({ product }: { product: Product }) {
           Fresh pick
         </span>
       </Link>
-      <div className="flex flex-1 flex-col p-3.5 md:p-4">
+      <div className="flex flex-1 flex-col p-3 md:p-4">
         <div className="flex items-start justify-between gap-2">
-          <p className="inline-flex rounded-full bg-[#eef9e8] px-2.5 py-1 text-xs font-bold text-[var(--brand)]">{product.categoryName}</p>
+          <p className="inline-flex max-w-[70%] rounded-full bg-[#eef9e8] px-2.5 py-1 text-[11px] font-bold text-[var(--brand)] md:text-xs">{product.categoryName}</p>
           <span className="inline-flex items-center gap-1 rounded-full bg-[#fff5da] px-2 py-1 text-[11px] font-bold text-[#7a5300]">
             <Truck size={12} />
             Today
           </span>
         </div>
         <Link href={`/product/${product.slug}`}>
-          <h3 className="mt-2 line-clamp-2 min-h-11 font-bold leading-snug text-[var(--brand-dark)]">{product.name}</h3>
+          <h3 className="mt-2 line-clamp-2 min-h-10 text-sm font-bold leading-snug text-[var(--brand-dark)] md:min-h-11 md:text-base">{product.name}</h3>
         </Link>
         <div className="mt-1 flex items-center justify-between gap-2">
           <p className="text-sm text-[var(--muted)]">{variant.unitLabel}</p>
@@ -44,7 +44,7 @@ export function ProductCard({ product }: { product: Product }) {
             {product.rating}
           </span>
         </div>
-        <div className="mt-3 grid gap-2 rounded-2xl bg-[#f8fbf6] p-3 text-xs font-semibold text-[var(--muted)]">
+        <div className="mt-3 grid gap-1.5 rounded-2xl bg-[#f8fbf6] p-2.5 text-[11px] font-semibold leading-5 text-[var(--muted)] md:gap-2 md:p-3 md:text-xs">
           <span className="inline-flex items-center gap-1">
             <Clock3 size={13} />
             Morning sorted and packed with care
