@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5f6f7;
-  --foreground: #39404a;
-  --muted: #777777;
+  --background: #f3f5ef;
+  --foreground: #243126;
+  --muted: #617065;
   --brand: #65b01b;
   --brand-dark: #072f17;
   --accent: #ffab10;
   --orange: #f87723;
-  --border: #e8e8e8;
+  --border: #dde7d7;
   --surface: #ffffff;
   --green-chalk: #ddffd5;
   --intro-bg: #f8fffa;
@@ -25,10 +25,13 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at top left, rgba(101, 176, 27, 0.08), transparent 32rem),
-    linear-gradient(180deg, #ffffff 0%, var(--background) 34rem);
+    radial-gradient(circle at top left, rgba(101, 176, 27, 0.11), transparent 30rem),
+    radial-gradient(circle at top right, rgba(248, 119, 35, 0.08), transparent 24rem),
+    linear-gradient(180deg, #fdfef9 0%, var(--background) 32rem);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -57,6 +60,14 @@ select {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 14px;
+}
+
+.section-surface {
+  border: 1px solid rgba(221, 231, 215, 0.9);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 18px 45px rgba(36, 49, 38, 0.06);
+  backdrop-filter: blur(12px);
 }
 
 .shadow-soft {

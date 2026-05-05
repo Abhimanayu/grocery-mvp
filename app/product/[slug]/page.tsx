@@ -60,8 +60,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <ProductDetails product={product} />
       <section className="container py-8 pb-24">
-        <SectionHeader eyebrow="More like this" title="Related products" />
-        <ProductGrid products={related} />
+        <div className="section-surface p-5 md:p-6 lg:p-7">
+          <SectionHeader eyebrow="More like this" title="Related products" />
+          <ProductGrid products={related} />
+        </div>
       </section>
     </>
   );

@@ -22,11 +22,11 @@ async function ShopContent({ searchParams }: { searchParams: Promise<{ q?: strin
     <section className="container py-6 pb-24">
       <CategorySpotlight
         title={params.q ? `Results for "${params.q}"` : "Shop all groceries"}
-        subtitle="Browse fresh fruits, vegetables, leafy greens, cut packs, and daily grocery essentials."
+        subtitle="Browse fruits, vegetables, leafy greens, cut packs, and daily kitchen staples with clearer pricing and faster Jaipur delivery."
       />
       <div className="mt-6 grid gap-6 lg:grid-cols-[260px_1fr]">
         <CategoryFilter />
-        <div>
+        <div className="section-surface p-4 md:p-6">
           <SectionHeader eyebrow="Today" title={`${products.length} fresh items available`} />
           <ShopToolbar count={products.length} />
           <ProductGrid products={products} />

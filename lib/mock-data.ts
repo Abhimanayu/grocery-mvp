@@ -24,7 +24,7 @@ export const categories: Category[] = [
     id: "cat-veg",
     name: "Fresh Vegetables",
     slug: "fresh-vegetables",
-    image: "https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?auto=format&fit=crop&w=900&q=80",
+    image: "https://foydn.in/public/thumbnail_fullimage/1772111962.webp",
     sortOrder: 1,
     productCount: 18
   },
@@ -32,7 +32,7 @@ export const categories: Category[] = [
     id: "cat-fruit",
     name: "Fresh Fruits",
     slug: "fresh-fruits",
-    image: "https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=900&q=80",
+    image: "https://foydn.in/public/thumbnail_fullimage/1772112056.webp",
     sortOrder: 2,
     productCount: 14
   },
@@ -40,7 +40,7 @@ export const categories: Category[] = [
     id: "cat-leafy",
     name: "Leafy Greens",
     slug: "leafy-greens",
-    image: "https://images.unsplash.com/photo-1515543904379-3d757afe72e4?auto=format&fit=crop&w=900&q=80",
+    image: "https://foydn.in/public/thumbnail_fullimage/1772112007.webp",
     sortOrder: 3,
     productCount: 9
   },
@@ -48,21 +48,21 @@ export const categories: Category[] = [
     id: "cat-cut",
     name: "Cut & Peeled",
     slug: "cut-peeled",
-    image: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80",
+    image: "https://foydn.in/public/thumbnail_fullimage/1772112041.webp",
     sortOrder: 4,
     productCount: 7
   }
 ];
 
 const productImages = {
-  potato: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=900&q=80",
-  onion: "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=900&q=80",
-  tomato: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=900&q=80",
-  carrot: "https://images.unsplash.com/photo-1445282768818-728615cc910a?auto=format&fit=crop&w=900&q=80",
-  apple: "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=900&q=80",
-  banana: "https://images.unsplash.com/photo-1603833665858-e61d17a86224?auto=format&fit=crop&w=900&q=80",
-  spinach: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=900&q=80",
-  salad: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=80"
+  potato: "https://foydn.in/public/thumbnail_fullimage/1771587392.webp",
+  onion: "https://foydn.in/public/thumbnail_fullimage/1771588796.webp",
+  tomato: "https://foydn.in/public/thumbnail_fullimage/1771587435.webp",
+  carrot: "https://foydn.in/public/thumbnail_fullimage/1771588660.webp",
+  apple: "https://foydn.in/public/thumbnail_fullimage/1771585658.webp",
+  banana: "https://foydn.in/public/thumbnail_fullimage/1771582250.webp",
+  spinach: "https://foydn.in/public/thumbnail_fullimage/1771588776.webp",
+  salad: "https://foydn.in/public/thumbnail_fullimage/1772112070.webp"
 };
 
 export const products: Product[] = [
@@ -70,7 +70,7 @@ export const products: Product[] = [
     id: "prod-potato",
     name: "Potato",
     slug: "potato",
-    description: "Firm, clean potatoes for curries, fries, roasting, and daily cooking.",
+    description: "Handpicked potatoes sorted for daily Jaipur kitchens, from sabzi and poha to crispy fries and comfort curries.",
     categorySlug: "fresh-vegetables",
     categoryName: "Fresh Vegetables",
     brand: "Foydn Fresh",
@@ -90,7 +90,7 @@ export const products: Product[] = [
     id: "prod-onion",
     name: "Onion Red",
     slug: "onion-red",
-    description: "Sharp, fresh red onions selected for long shelf life and strong flavor.",
+    description: "Fresh red onions with sharp flavour, selected for dependable shelf life and everyday cooking prep.",
     categorySlug: "fresh-vegetables",
     categoryName: "Fresh Vegetables",
     brand: "Foydn Fresh",
@@ -107,7 +107,7 @@ export const products: Product[] = [
     id: "prod-tomato",
     name: "Tomato",
     slug: "tomato",
-    description: "Juicy tomatoes for gravies, salads, chutneys, and fresh cooking.",
+    description: "Juicy tomatoes with bright colour and clean sorting for gravies, salads, chutneys, and daily meals.",
     categorySlug: "fresh-vegetables",
     categoryName: "Fresh Vegetables",
     brand: "Foydn Fresh",
@@ -124,7 +124,7 @@ export const products: Product[] = [
     id: "prod-carrot",
     name: "Red Carrot",
     slug: "red-carrot",
-    description: "Sweet seasonal carrots for juice, salad, halwa, and everyday meals.",
+    description: "Seasonal red carrots with sweetness and crunch, packed carefully for juice, salad, halwa, and home cooking.",
     categorySlug: "fresh-vegetables",
     categoryName: "Fresh Vegetables",
     brand: "Foydn Fresh",
@@ -141,7 +141,7 @@ export const products: Product[] = [
     id: "prod-apple",
     name: "Apple Kinnaur",
     slug: "apple-kinnaur",
-    description: "Crisp, sweet apples packed carefully for safe doorstep delivery.",
+    description: "Crisp Kinnaur apples with natural sweetness, packed carefully so they arrive fresh and presentable.",
     categorySlug: "fresh-fruits",
     categoryName: "Fresh Fruits",
     brand: "Foydn Fresh",
@@ -158,7 +158,7 @@ export const products: Product[] = [
     id: "prod-banana",
     name: "Banana",
     slug: "banana",
-    description: "Naturally sweet bananas, ideal for breakfast, smoothies, and kids.",
+    description: "Naturally sweet bananas chosen for breakfast bowls, smoothies, lunch boxes, and easy repeat orders.",
     categorySlug: "fresh-fruits",
     categoryName: "Fresh Fruits",
     brand: "Foydn Fresh",
@@ -175,7 +175,7 @@ export const products: Product[] = [
     id: "prod-spinach",
     name: "Spinach",
     slug: "spinach",
-    description: "Washed leafy spinach bunches for soups, curries, parathas, and salads.",
+    description: "Leafy spinach bunches cleaned for soups, saag, parathas, curries, and quick weekday prep.",
     categorySlug: "leafy-greens",
     categoryName: "Leafy Greens",
     brand: "Foydn Fresh",
@@ -192,7 +192,7 @@ export const products: Product[] = [
     id: "prod-salad",
     name: "Mixed Salad Pack",
     slug: "mixed-salad-pack",
-    description: "Ready-to-use salad vegetables cut fresh for quick healthy meals.",
+    description: "Ready-to-use salad vegetables cut fresh for quick healthy meals, office lunches, and dinner sides.",
     categorySlug: "cut-peeled",
     categoryName: "Cut & Peeled",
     brand: "Foydn Fresh",
@@ -210,17 +210,17 @@ export const products: Product[] = [
 export const banners: Banner[] = [
   {
     id: "banner-hero",
-    title: "Freshness at your door",
-    subtitle: "Jaipur's trusted fruits and vegetables, handpicked daily and delivered with local care.",
-    image: "https://foydn.in/public/thumbnail_fullimage/1772111984.webp",
+    title: "Fresh produce that feels thoughtfully delivered",
+    subtitle: "Fresh fruits, vegetables, and cut packs for Jaipur homes with same-day delivery, careful packing, and local support.",
+    image: "https://foydn.in/public/thumbnail_fullimage/1776686434.jpg",
     href: "/shop",
     placement: "hero"
   },
   {
     id: "banner-free-delivery",
-    title: "Free delivery above ₹499",
-    subtitle: "Add daily essentials and save more on every order.",
-    image: "https://foydn.in/public/thumbnail_fullimage/1772111984.webp",
+    title: "Free delivery above Rs 499",
+    subtitle: "Build a fuller basket with fresh staples, fruit, and greens and save more on every order.",
+    image: "https://foydn.in/public/thumbnail_fullimage/1776685696.jpg",
     href: "/shop?offer=free-delivery",
     placement: "strip"
   }

@@ -34,11 +34,11 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <CategorySpotlight
         category={category}
         title={category.name}
-        subtitle={`${category.name} selected for Jaipur homes, with clear units, offers, and same-day delivery.`}
+        subtitle={`${category.name} selected for Jaipur homes with clearer units, cleaner pricing, and same-day grocery delivery.`}
       />
       <div className="mt-6 grid gap-6 lg:grid-cols-[260px_1fr]">
         <CategoryFilter activeSlug={category.slug} />
-        <div>
+        <div className="section-surface p-4 md:p-6">
           <SectionHeader eyebrow="Available now" title={`${products.length} ${category.name.toLowerCase()} items`} />
           <ShopToolbar count={products.length} />
           <ProductGrid products={products} />
