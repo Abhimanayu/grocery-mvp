@@ -44,7 +44,32 @@ export function CheckoutPageClient() {
     router.push(`/checkout/success?order=${data.id}`);
   }
 
-  if (isLoading) return <section className="container py-10">Loading checkout...</section>;
+  if (isLoading) {
+    return (
+      <section className="container grid gap-6 py-8 pb-24 lg:grid-cols-[1fr_360px]">
+        <div className="space-y-4">
+          <div>
+            <div className="h-4 w-24 animate-pulse rounded bg-[#eef3e9]" />
+            <div className="mt-2 h-10 w-52 animate-pulse rounded-xl bg-[#eef3e9]" />
+          </div>
+          {[0, 1, 2, 3].map((index) => (
+            <div className="card space-y-3 p-5" key={index}>
+              <div className="h-5 w-36 animate-pulse rounded bg-[#eef3e9]" />
+              <div className="h-12 w-full animate-pulse rounded-xl bg-[#eef3e9]" />
+              <div className="h-12 w-full animate-pulse rounded-xl bg-[#eef3e9]" />
+            </div>
+          ))}
+        </div>
+        <div className="card space-y-3 p-5">
+          <div className="h-5 w-28 animate-pulse rounded bg-[#eef3e9]" />
+          <div className="h-4 w-full animate-pulse rounded bg-[#eef3e9]" />
+          <div className="h-4 w-5/6 animate-pulse rounded bg-[#eef3e9]" />
+          <div className="h-12 w-full animate-pulse rounded-xl bg-[#eef3e9]" />
+        </div>
+      </section>
+    );
+  }
+
   if (!cart?.items.length) {
     return <section className="container py-10 pb-24"><EmptyState title="Cart is empty" text="Add items to continue checkout." /></section>;
   }

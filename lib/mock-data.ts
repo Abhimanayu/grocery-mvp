@@ -2,7 +2,13 @@ import type { Banner, BlogPost, Category, Product } from "@/lib/types";
 
 export const siteConfig = {
   name: "Foydn Fresh",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000"),
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : "http://localhost:3000"),
   logo: "https://foydn.in/public/assets/images/logo.png",
   phone: "+91-7412916917",
   whatsapp: "+917412916917",
@@ -205,7 +211,7 @@ export const banners: Banner[] = [
   {
     id: "banner-hero",
     title: "Freshness at your door",
-    subtitle: "Jaipur’s trusted fruits and vegetables, handpicked daily and delivered with local care.",
+    subtitle: "Jaipur's trusted fruits and vegetables, handpicked daily and delivered with local care.",
     image: "https://foydn.in/public/thumbnail_fullimage/1772111984.webp",
     href: "/shop",
     placement: "hero"
@@ -244,3 +250,4 @@ export const deliveryZones = [
   { name: "Sanganer", pincode: "302029", minOrder: siteConfig.minimumOrder, deliveryFee: siteConfig.deliveryFee, isActive: true },
   { name: "Mansarovar", pincode: "302020", minOrder: siteConfig.minimumOrder, deliveryFee: siteConfig.deliveryFee, isActive: true }
 ];
+

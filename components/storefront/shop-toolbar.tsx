@@ -1,4 +1,4 @@
-import { ArrowDownAZ, Clock3, Filter, MapPin, ShieldCheck } from "lucide-react";
+import { ArrowDownAZ, Clock3, MapPin, ShieldCheck } from "lucide-react";
 
 export function ShopToolbar({ count }: { count: number }) {
   return (
@@ -9,14 +9,13 @@ export function ShopToolbar({ count }: { count: number }) {
         <TrustPill icon={<MapPin size={17} />} title="302021 ready" text="Serviceable pincode" />
       </div>
       <div className="flex gap-2">
-        <button className="inline-flex h-11 items-center gap-2 rounded-full border border-[#d7edcc] bg-white px-4 text-sm font-bold">
-          <Filter size={17} />
-          Filter
-        </button>
-        <button className="inline-flex h-11 items-center gap-2 rounded-full border border-[#d7edcc] bg-white px-4 text-sm font-bold">
+        <div className="inline-flex h-11 items-center gap-2 rounded-full border border-[#d7edcc] bg-[#f8fffa] px-4 text-sm font-bold text-[var(--muted)]">
+          Ready for same-day dispatch
+        </div>
+        <div className="inline-flex h-11 items-center gap-2 rounded-full border border-[#d7edcc] bg-white px-4 text-sm font-bold">
           <ArrowDownAZ size={17} />
           Popular
-        </button>
+        </div>
       </div>
       <p className="text-sm font-semibold text-[var(--muted)] xl:col-span-2">
         Showing {count} handpicked items. Prices and stock are checked before delivery.

@@ -3,6 +3,7 @@
   "buildCommand": "npm run build",
   "installCommand": "npm install",
   "env": {
-    "OTP_PROVIDER": "mock"
+    "OTP_PROVIDER": "mock",
+    "NEXT_PUBLIC_SITE_URL": "https://grocery-mvp-gamma.vercel.app"
   }
 }

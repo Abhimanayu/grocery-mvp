@@ -2,7 +2,7 @@ import { AddToCartButton } from "@/components/storefront/add-to-cart-button";
 import { OfferBadge } from "@/components/storefront/offer-badge";
 import { PriceBlock } from "@/components/storefront/price-block";
 import type { Product } from "@/lib/types";
-import { Clock3, Heart, Star } from "lucide-react";
+import { Clock3, Sparkles, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -20,9 +20,10 @@ export function ProductCard({ product }: { product: Product }) {
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
         />
         <OfferBadge mrp={variant.mrp} salePrice={variant.salePrice} />
-        <button className="absolute right-2 top-2 grid size-9 place-items-center rounded-full bg-white/95 text-[var(--muted)] shadow-soft" type="button" aria-label="Save product">
-          <Heart size={17} />
-        </button>
+        <span className="absolute right-2 top-2 inline-flex items-center gap-1 rounded-full bg-white/95 px-3 py-2 text-xs font-bold text-[var(--brand-dark)] shadow-soft">
+          <Sparkles size={14} className="text-[var(--brand)]" />
+          Fresh pick
+        </span>
       </Link>
       <div className="flex flex-1 flex-col p-3.5">
         <p className="inline-flex rounded-full bg-[#eef9e8] px-2.5 py-1 text-xs font-bold text-[var(--brand)]">{product.categoryName}</p>

@@ -40,7 +40,7 @@ export function Footer() {
         </div>
       </div>
       <div className="container mt-10 border-t border-white/10 pt-5 text-sm text-white/55">
-        © 2026 Foydn Fresh. MVP rebuild scaffold.
+        © 2026 Foydn Fresh. Built for fast local grocery delivery in Jaipur.
       </div>
     </footer>
   );
@@ -60,3 +60,4 @@ function FooterLinks({ title, links }: { title: string; links: Array<[string, st
     </div>
   );
 }
+
