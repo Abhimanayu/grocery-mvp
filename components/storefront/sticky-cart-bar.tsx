@@ -5,11 +5,13 @@ import { useCart } from "@/components/storefront/cart-provider";
 import { formatPrice } from "@/lib/format";
 import { Clock3, ShoppingBag } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function StickyCartBar() {
   const { cart } = useCart();
+  const pathname = usePathname();
 
-  if (!cart?.items.length) return null;
+  if (!cart?.items.length || pathname.startsWith("/cart") || pathname.startsWith("/checkout")) return null;
 
   return (
     <div className="fixed inset-x-0 bottom-[72px] z-40 px-3 pb-[env(safe-area-inset-bottom)] md:hidden">

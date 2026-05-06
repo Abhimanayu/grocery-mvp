@@ -58,7 +58,7 @@ export function CheckoutLoginStep({ onVerified }: CheckoutLoginStepProps) {
         <div className="mt-3 grid gap-3 sm:grid-cols-[1fr_auto]">
           <input className="h-11 rounded-md border border-[var(--border)] px-3" placeholder="Enter OTP" value={otp} onChange={(event) => setOtp(event.target.value)} />
           <button className="rounded-md border border-[var(--border)] px-5 font-bold" type="button" onClick={verify}>
-            Verify
+            Verify OTP
           </button>
         </div>
       ) : null}

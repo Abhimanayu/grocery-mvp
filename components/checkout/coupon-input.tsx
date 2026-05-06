@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 type CouponInputProps = {
-  onApplied: (code: string) => void;
+  onApplied: (code: string, discount: number) => void;
 };
 
 export function CouponInput({ onApplied }: CouponInputProps) {
@@ -22,7 +22,7 @@ export function CouponInput({ onApplied }: CouponInputProps) {
       setMessage(data.error ?? "Coupon failed");
       return;
     }
-    onApplied(code.toUpperCase());
+    onApplied(code.toUpperCase(), data.discount ?? 0);
     setMessage(`${code.toUpperCase()} applied`);
   }
 

@@ -18,6 +18,7 @@ export function CheckoutPageClient() {
   const router = useRouter();
   const [phoneVerified, setPhoneVerified] = useState(false);
   const [couponCode, setCouponCode] = useState("");
+  const [couponDiscount, setCouponDiscount] = useState(0);
   const [paymentMethod, setPaymentMethod] = useState<"COD" | "RAZORPAY">("COD");
   const [message, setMessage] = useState("");
   const [address, setAddress] = useState<AddressInput>({
@@ -96,7 +97,12 @@ export function CheckoutPageClient() {
           <h2 className="text-lg font-black md:text-xl">Coupon</h2>
           <p className="mt-1 text-sm text-[var(--muted)]">Try FRESH50 for the demo discount flow.</p>
           <div className="mt-4">
-            <CouponInput onApplied={setCouponCode} />
+            <CouponInput
+              onApplied={(code, discount) => {
+                setCouponCode(code);
+                setCouponDiscount(discount);
+              }}
+            />
           </div>
         </section>
         <section className="grid gap-3 sm:grid-cols-2">
@@ -119,7 +125,7 @@ export function CheckoutPageClient() {
         {message ? <p className="rounded-md bg-red-50 p-3 text-sm font-bold text-red-700">{message}</p> : null}
       </div>
       <div className="space-y-3">
-        <OrderSummary cart={cart} />
+        <OrderSummary cart={cart} couponDiscount={couponDiscount} />
         <button
           className="w-full rounded-xl bg-[var(--brand)] px-5 py-3 font-bold text-white disabled:opacity-60"
           disabled={!phoneVerified}

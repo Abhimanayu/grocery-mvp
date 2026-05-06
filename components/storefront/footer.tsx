@@ -35,9 +35,9 @@ export function Footer() {
             <li className="flex gap-2"><MapPin size={16} /> Jaipur, Rajasthan</li>
           </ul>
           <div className="mt-4 space-y-2 text-xs text-white/70 md:mt-5 md:text-sm">
-            <Link className="block" href="/privacy-policy">Privacy Policy</Link>
-            <Link className="block" href="/shipping-policy">Shipping Policy</Link>
-            <Link className="block" href="/refund-policy">Refund Policy</Link>
+            <Link className="flex min-h-9 items-center" href="/privacy-policy">Privacy Policy</Link>
+            <Link className="flex min-h-9 items-center" href="/shipping-policy">Shipping Policy</Link>
+            <Link className="flex min-h-9 items-center" href="/refund-policy">Refund Policy</Link>
           </div>
         </div>
       </div>
@@ -52,9 +52,9 @@ function FooterLinks({ title, links }: { title: string; links: Array<[string, st
   return (
     <div>
       <h3 className="text-sm font-bold md:text-base">{title}</h3>
-      <div className="mt-3 space-y-2 text-xs text-white/70 md:mt-4 md:text-sm">
+      <div className="mt-3 space-y-1 text-xs text-white/70 md:mt-4 md:text-sm">
         {links.map(([label, href]) => (
-          <Link className="block hover:text-white" href={href} key={href}>
+          <Link className="flex min-h-9 items-center hover:text-white" href={href} key={href}>
             {label}
           </Link>
         ))}

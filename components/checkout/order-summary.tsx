@@ -3,7 +3,10 @@ import { formatPrice } from "@/lib/format";
 import type { CartSummary } from "@/lib/types";
 import { Clock3, ShieldCheck } from "lucide-react";
 
-export function OrderSummary({ cart }: { cart: CartSummary }) {
+export function OrderSummary({ cart, couponDiscount }: { cart: CartSummary; couponDiscount?: number }) {
+  const discount = couponDiscount ?? cart.discount;
+  const total = Math.max(0, cart.subtotal - discount + cart.deliveryFee);
+
   return (
     <aside className="card h-fit p-4 md:sticky md:top-28 md:p-5">
       <h2 className="text-lg font-black md:text-xl">Order summary</h2>
@@ -14,10 +17,10 @@ export function OrderSummary({ cart }: { cart: CartSummary }) {
           <span className="inline-flex items-center gap-2"><ShieldCheck size={15} className="text-[var(--brand)]" /> Freshness support after delivery</span>
         </div>
         <Row label="Subtotal" value={formatPrice(cart.subtotal)} />
-        <Row label="Discount" value={`-${formatPrice(cart.discount)}`} />
+        <Row label="Discount" value={discount ? `-${formatPrice(discount)}` : formatPrice(0)} />
         <Row label="Delivery fee" value={cart.deliveryFee ? formatPrice(cart.deliveryFee) : "Free"} />
         <div className="border-t border-[var(--border)] pt-3">
-          <Row strong label="Total" value={formatPrice(cart.total)} />
+          <Row strong label="Total" value={formatPrice(total)} />
         </div>
       </div>
     </aside>
