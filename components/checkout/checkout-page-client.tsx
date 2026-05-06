@@ -46,7 +46,7 @@ export function CheckoutPageClient() {
 
   if (isLoading) {
     return (
-      <section className="container grid gap-6 py-8 pb-24 lg:grid-cols-[1fr_360px]">
+      <section className="container grid gap-6 py-6 pb-24 lg:grid-cols-[1fr_360px]">
         <div className="space-y-4">
           <div>
             <div className="h-4 w-24 animate-pulse rounded bg-[#eef3e9]" />
@@ -71,15 +71,15 @@ export function CheckoutPageClient() {
   }
 
   if (!cart?.items.length) {
-    return <section className="container py-10 pb-24"><EmptyState title="Cart is empty" text="Add items to continue checkout." /></section>;
+    return <section className="container py-8 pb-24"><EmptyState title="Cart is empty" text="Add items to continue checkout." /></section>;
   }
 
   return (
-    <section className="container grid gap-6 py-8 pb-24 lg:grid-cols-[1fr_360px]">
+    <section className="container grid gap-5 py-6 pb-24 lg:grid-cols-[1fr_360px]">
       <div className="space-y-4">
         <div>
           <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand)]">Checkout</p>
-          <h1 className="mt-1 text-3xl font-black">Place your order</h1>
+          <h1 className="mt-1 text-2xl font-black md:text-3xl">Place your order</h1>
         </div>
         <CheckoutLoginStep
           onVerified={(phone) => {
@@ -91,7 +91,7 @@ export function CheckoutPageClient() {
         <DeliverySlotPicker />
         <PaymentSelector value={paymentMethod} onChange={setPaymentMethod} />
         <section className="card p-4">
-          <h2 className="text-xl font-black">Coupon</h2>
+          <h2 className="text-lg font-black md:text-xl">Coupon</h2>
           <div className="mt-4">
             <CouponInput onApplied={setCouponCode} />
           </div>
@@ -101,7 +101,7 @@ export function CheckoutPageClient() {
       <div className="space-y-3">
         <OrderSummary cart={cart} />
         <button
-          className="w-full rounded-md bg-[var(--brand)] px-5 py-3 font-bold text-white disabled:opacity-60"
+          className="w-full rounded-xl bg-[var(--brand)] px-5 py-3 font-bold text-white disabled:opacity-60"
           disabled={!phoneVerified}
           onClick={placeOrder}
           type="button"

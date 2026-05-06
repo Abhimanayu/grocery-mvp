@@ -4,8 +4,8 @@ import type { CartSummary } from "@/lib/types";
 
 export function OrderSummary({ cart }: { cart: CartSummary }) {
   return (
-    <aside className="card h-fit p-4">
-      <h2 className="text-xl font-black">Order summary</h2>
+    <aside className="card h-fit p-4 md:p-5">
+      <h2 className="text-lg font-black md:text-xl">Order summary</h2>
       <div className="mt-4 space-y-3">
         <MinimumOrderProgress cart={cart} />
         <Row label="Subtotal" value={formatPrice(cart.subtotal)} />
@@ -21,9 +21,9 @@ export function OrderSummary({ cart }: { cart: CartSummary }) {
 
 function Row({ label, value, strong }: { label: string; value: string; strong?: boolean }) {
   return (
-    <div className={`flex justify-between gap-4 ${strong ? "text-lg font-black" : "text-sm"}`}>
+    <div className={`flex justify-between gap-4 ${strong ? "text-base font-black md:text-lg" : "text-sm"}`}>
       <span className="text-[var(--muted)]">{label}</span>
-      <span className="font-bold">{value}</span>
+      <span className="font-bold text-right">{value}</span>
     </div>
   );
 }

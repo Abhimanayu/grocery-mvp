@@ -16,7 +16,7 @@ export function CategorySpotlight({ category, title, subtitle }: { category?: Ca
               {title}
             </h1>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--muted)] md:mt-4 md:text-lg md:leading-8">{subtitle}</p>
-            <div className="mt-5 grid gap-2 md:mt-7 md:gap-3 sm:grid-cols-3">
+            <div className="mt-5 grid grid-cols-3 gap-2 md:mt-7 md:gap-3">
               <MiniStat icon={<Leaf size={18} />} value="Morning" label="sorted produce" />
               <MiniStat icon={<Truck size={18} />} value="Same-day" label="Jaipur dispatch" />
               <MiniStat icon={<BadgePercent size={18} />} value="Better" label="basket value" />
@@ -45,10 +45,10 @@ export function CategorySpotlight({ category, title, subtitle }: { category?: Ca
 
 function MiniStat({ icon, value, label }: { icon: ReactNode; value: string; label: string }) {
   return (
-    <div className="rounded-2xl border border-[#e4efdd] bg-white p-3 shadow-[0_8px_20px_rgba(57,64,74,0.06)] md:p-4">
+    <div className="rounded-2xl border border-[#e4efdd] bg-white p-2.5 shadow-[0_8px_20px_rgba(57,64,74,0.06)] md:p-4">
       <span className="text-[var(--brand)]">{icon}</span>
-      <p className="mt-2 text-base font-black text-[var(--brand-dark)] md:text-lg">{value}</p>
-      <p className="text-xs font-semibold text-[var(--muted)]">{label}</p>
+      <p className="mt-2 text-sm font-black text-[var(--brand-dark)] md:text-lg">{value}</p>
+      <p className="text-[10px] font-semibold leading-4 text-[var(--muted)] md:text-xs">{label}</p>
     </div>
   );
 }
