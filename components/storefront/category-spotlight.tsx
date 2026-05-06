@@ -16,7 +16,12 @@ export function CategorySpotlight({ category, title, subtitle }: { category?: Ca
               {title}
             </h1>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--muted)] md:mt-4 md:text-lg md:leading-8">{subtitle}</p>
-            <div className="mt-5 grid gap-2 sm:grid-cols-3 md:mt-7 md:gap-3">
+            <div className="mt-4 flex flex-wrap gap-2 sm:hidden">
+              <CompactPill text="Morning sorted" />
+              <CompactPill text="Same-day Jaipur" />
+              <CompactPill text="Better basket value" />
+            </div>
+            <div className="mt-5 hidden gap-2 sm:grid-cols-3 sm:grid md:mt-7 md:gap-3">
               <MiniStat icon={<Leaf size={18} />} value="Morning" label="sorted produce" />
               <MiniStat icon={<Truck size={18} />} value="Same-day" label="Jaipur dispatch" />
               <MiniStat icon={<BadgePercent size={18} />} value="Better" label="basket value" />
@@ -41,6 +46,10 @@ export function CategorySpotlight({ category, title, subtitle }: { category?: Ca
       </div>
     </section>
   );
+}
+
+function CompactPill({ text }: { text: string }) {
+  return <span className="rounded-full border border-[#d7edcc] bg-white px-3 py-2 text-[11px] font-bold text-[var(--brand-dark)]">{text}</span>;
 }
 
 function MiniStat({ icon, value, label }: { icon: ReactNode; value: string; label: string }) {

@@ -43,7 +43,12 @@ export function ProductDetails({ product }: { product: Product }) {
           </span>
         </div>
         <p className="mt-5 max-w-2xl text-[var(--muted)] md:text-lg md:leading-8">{product.description}</p>
-        <div className="mt-6 grid gap-3 rounded-[22px] bg-[#f8fbf6] p-4 md:grid-cols-3">
+        <div className="mt-5 flex flex-wrap gap-2 md:hidden">
+          <CompactFact text="Fast local delivery" />
+          <CompactFact text="Freshness support" />
+          <CompactFact text="Free above Rs 499" />
+        </div>
+        <div className="mt-6 hidden gap-3 rounded-[22px] bg-[#f8fbf6] p-4 md:grid md:grid-cols-3">
           <QuickFact icon={<Truck size={17} />} title="Fast local delivery" text="Dispatched in active Jaipur zones." />
           <QuickFact icon={<ShieldCheck size={17} />} title="Freshness support" text="Quick help if anything feels off." />
           <QuickFact icon={<Sparkles size={17} />} title="Better basket value" text="Free delivery unlocks above Rs 499." />
@@ -76,6 +81,10 @@ export function ProductDetails({ product }: { product: Product }) {
       </div>
     </section>
   );
+}
+
+function CompactFact({ text }: { text: string }) {
+  return <span className="rounded-full border border-[#d7edcc] bg-white px-3 py-2 text-[11px] font-bold text-[var(--brand-dark)]">{text}</span>;
 }
 
 function QuickFact({ icon, title, text }: { icon: ReactNode; title: string; text: string }) {

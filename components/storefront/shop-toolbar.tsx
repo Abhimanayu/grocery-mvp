@@ -3,7 +3,12 @@ import { ArrowDownAZ, Clock3, MapPin, ShieldCheck } from "lucide-react";
 export function ShopToolbar({ count }: { count: number }) {
   return (
     <div className="mb-4 grid gap-3 xl:grid-cols-[1fr_auto]">
-      <div className="grid gap-2 sm:grid-cols-3 sm:gap-3">
+      <div className="flex gap-2 overflow-x-auto sm:hidden">
+        <CompactTrustPill text="Today delivery" />
+        <CompactTrustPill text="Fresh check" />
+        <CompactTrustPill text="302021 ready" />
+      </div>
+      <div className="hidden gap-2 sm:grid-cols-3 sm:grid sm:gap-3">
         <TrustPill icon={<Clock3 size={17} />} title="Today delivery" text="Selected Jaipur zones" />
         <TrustPill icon={<ShieldCheck size={17} />} title="Fresh check" text="Quality packed" />
         <TrustPill icon={<MapPin size={17} />} title="302021 ready" text="Serviceable pincode" />
@@ -22,6 +27,10 @@ export function ShopToolbar({ count }: { count: number }) {
       </p>
     </div>
   );
+}
+
+function CompactTrustPill({ text }: { text: string }) {
+  return <span className="min-w-max rounded-full border border-[#d7edcc] bg-white px-3 py-2 text-[11px] font-bold text-[var(--brand-dark)]">{text}</span>;
 }
 
 function TrustPill({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {

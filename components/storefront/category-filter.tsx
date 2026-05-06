@@ -6,9 +6,11 @@ export function CategoryFilter({ activeSlug }: { activeSlug?: string }) {
 
   return (
     <aside className="section-surface h-fit p-3 md:p-4 lg:sticky lg:top-36">
-      <h2 className="text-base font-black text-[var(--brand-dark)] md:text-lg">Fresh Fruits and Veg.</h2>
-      <p className="mt-1 text-xs text-[var(--muted)] md:text-sm">Curated for fast Jaipur grocery orders</p>
-      <div className="mt-3 flex gap-2 overflow-x-auto pb-1 lg:block lg:space-y-2 lg:overflow-visible lg:pb-0">
+      <div className="hidden lg:block">
+        <h2 className="text-base font-black text-[var(--brand-dark)] md:text-lg">Fresh Fruits and Veg.</h2>
+        <p className="mt-1 text-xs text-[var(--muted)] md:text-sm">Curated for fast Jaipur grocery orders</p>
+      </div>
+      <div className="flex gap-2 overflow-x-auto pb-1 lg:mt-3 lg:block lg:space-y-2 lg:overflow-visible lg:pb-0">
         <CategoryLink href="/shop" label="All" active={!activeSlug} />
         {categories.map((category) => (
           <CategoryLink
