@@ -25,7 +25,7 @@ export function AddToCartButton({ variantId, compact = false }: AddToCartButtonP
   return (
     <button
       className={`focus-ring inline-flex items-center justify-center gap-2 rounded-full bg-[var(--brand)] font-bold text-white shadow-[0_8px_18px_rgba(101,176,27,0.22)] transition hover:bg-[#579a16] disabled:opacity-60 ${
-        compact ? "h-9 px-3 text-xs md:h-10 md:px-4 md:text-sm" : "h-10 px-4 text-sm"
+        compact ? "h-10 min-w-[92px] px-3.5 text-sm md:h-10 md:px-4 md:text-sm" : "h-10 px-4 text-sm"
       }`}
       disabled={isAdding}
       onClick={onAdd}

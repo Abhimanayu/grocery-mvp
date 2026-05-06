@@ -26,32 +26,32 @@ export function ProductCard({ product }: { product: Product }) {
           Fresh pick
         </span>
       </Link>
-      <div className="flex flex-1 flex-col p-2 md:p-4">
+      <div className="flex flex-1 flex-col p-3 md:p-4">
         <div className="flex items-start justify-between gap-2">
-          <p className="inline-flex max-w-[68%] rounded-full bg-[#eef9e8] px-2 py-1 text-[10px] font-bold text-[var(--brand)] md:px-2.5 md:text-xs">{product.categoryName}</p>
-          <span className="inline-flex items-center gap-1 rounded-full bg-[#fff5da] px-1.5 py-1 text-[10px] font-bold text-[#7a5300] md:px-2 md:text-[11px]">
+          <p className="inline-flex max-w-[60%] rounded-full bg-[#eef9e8] px-2.5 py-1.5 text-[11px] font-bold text-[var(--brand)] md:max-w-[68%] md:px-2.5 md:py-1 md:text-xs">{product.categoryName}</p>
+          <span className="inline-flex items-center gap-1 rounded-full bg-[#fff5da] px-2 py-1.5 text-[10px] font-bold text-[#7a5300] md:px-2 md:py-1 md:text-[11px]">
             <Truck size={12} />
             Today
           </span>
         </div>
         <Link href={`/product/${product.slug}`}>
-          <h3 className="mt-2 line-clamp-2 min-h-10 text-[14px] font-bold leading-snug text-[var(--brand-dark)] md:min-h-11 md:text-base">{product.name}</h3>
+          <h3 className="mt-2 line-clamp-2 min-h-0 text-[1.7rem] font-bold leading-[1.05] text-[var(--brand-dark)] min-[420px]:min-h-10 min-[420px]:text-[14px] md:min-h-11 md:text-base">{product.name}</h3>
         </Link>
         <div className="mt-1 flex items-center justify-between gap-2">
-          <p className="text-[13px] text-[var(--muted)] md:text-sm">{variant.unitLabel}</p>
-          <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[var(--brand)] md:text-xs">
+          <p className="text-sm text-[var(--muted)] md:text-sm">{variant.unitLabel}</p>
+          <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[var(--brand)] md:text-xs">
             <Star size={13} fill="currentColor" />
             {product.rating}
           </span>
         </div>
-        <div className="mt-2 grid gap-1 rounded-2xl bg-[#f8fbf6] p-2 text-[10px] font-semibold leading-4 text-[var(--muted)] md:mt-3 md:gap-2 md:p-3 md:text-xs md:leading-5">
+        <div className="mt-2 grid gap-1 rounded-2xl bg-[#f8fbf6] p-2.5 text-[11px] font-semibold leading-4 text-[var(--muted)] min-[420px]:p-2 md:mt-3 md:gap-2 md:p-3 md:text-xs md:leading-5">
           <span className="inline-flex items-center gap-1">
             <Clock3 size={12} />
             Morning sorted
           </span>
           <span className="text-[var(--brand)]">Clean pricing</span>
         </div>
-        <div className="mt-auto flex items-end justify-between gap-2 pt-2.5">
+        <div className="mt-auto flex items-end justify-between gap-3 pt-3">
           <PriceBlock mrp={variant.mrp} salePrice={variant.salePrice} />
           <AddToCartButton compact variantId={variant.id} />
         </div>
