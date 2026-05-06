@@ -7,7 +7,7 @@ export function OfferBanner({ banner }: { banner: Banner }) {
   return (
     <Link className="section-surface group grid overflow-hidden md:grid-cols-[1.1fr_0.9fr]" href={banner.href}>
       <div className="relative overflow-hidden px-4 py-5 md:px-8 md:py-10">
-        <div className="absolute -right-12 top-0 size-40 rounded-full bg-[var(--accent)]/18" />
+        <div className="absolute right-2 top-2 size-24 rounded-full bg-[var(--accent)]/18 md:-right-12 md:top-0 md:size-40" />
         <div className="absolute -bottom-20 left-6 size-48 rounded-full bg-[var(--brand)]/10" />
         <div className="relative max-w-xl">
           <p className="inline-flex rounded-full bg-[#ddffd5] px-3 py-1.5 text-xs font-black uppercase tracking-[0.14em] text-[var(--brand-dark)] md:px-4 md:py-2 md:text-sm">

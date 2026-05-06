@@ -4,7 +4,7 @@ import { CartDrawer } from "@/components/storefront/cart-drawer";
 import { useCart } from "@/components/storefront/cart-provider";
 import { getCategories } from "@/lib/catalog";
 import { siteConfig } from "@/lib/mock-data";
-import { MapPin, Menu, Search, ShoppingCart, UserRound, X } from "lucide-react";
+import { ChevronRight, MapPin, Menu, Search, ShoppingCart, UserRound, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -61,10 +61,10 @@ export function Header() {
               <span className="text-[var(--muted)]">{siteConfig.city}</span>
             </span>
           </button>
-          <form className="order-4 basis-full md:order-3 md:basis-auto md:min-w-0 md:flex-1" onSubmit={onSearch}>
-            <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[var(--muted)]" size={20} />
+          <form className="relative order-4 basis-full md:order-3 md:basis-auto md:min-w-0 md:flex-1" onSubmit={onSearch}>
+            <Search className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[var(--muted)]" size={20} />
             <input
-              className="focus-ring h-12 w-full rounded-full border border-[#d7edcc] bg-[#f8fffa] pl-10 pr-4 text-sm shadow-inner md:h-14 md:text-base"
+              className="focus-ring h-12 w-full rounded-full border border-[#d7edcc] bg-[#f8fffa] pl-11 pr-4 text-sm shadow-inner md:h-14 md:text-base"
               placeholder="Search milk, potato, apple, spinach..."
               value={query}
               onChange={(event) => setQuery(event.target.value)}
@@ -93,39 +93,34 @@ export function Header() {
         </div>
         <TopCategoryNav />
         {menuOpen ? (
-          <div className="border-t border-[#e8f3e1] bg-white lg:hidden">
+          <div className="border-t border-[#e8f3e1] bg-[#f7fbf4] lg:hidden">
             <div className="container py-3">
-              <div className="rounded-[22px] border border-[#dce9d2] bg-[#f8fffa] p-3 shadow-[0_12px_30px_rgba(36,49,38,0.06)]">
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <p className="text-sm font-black uppercase tracking-wide text-[var(--brand)]">Quick shop</p>
-                    <p className="mt-1 text-sm text-[var(--muted)]">Browse fresh grocery categories and get back to your basket fast.</p>
-                  </div>
-                  <button className="rounded-full border border-[var(--border)] bg-white p-2 text-[var(--muted)]" onClick={closeMenu} type="button" aria-label="Close mobile menu">
-                    <X size={16} />
-                  </button>
+              <div className="rounded-[26px] border border-[#dce9d2] bg-white p-4 shadow-[0_14px_32px_rgba(36,49,38,0.08)]">
+                <div>
+                  <p className="text-xs font-black uppercase tracking-[0.12em] text-[var(--brand)]">Quick shop</p>
+                  <p className="mt-1 text-sm leading-6 text-[var(--muted)]">Fresh categories, basket and checkout in one tap.</p>
                 </div>
-                <div className="mt-4 grid grid-cols-2 gap-2">
+                <div className="mt-4 grid grid-cols-2 gap-2.5">
                   <MobileMenuLink href="/shop" label="All groceries" onClick={closeMenu} />
-                  <MobileMenuLink href="/account" label="My account" onClick={closeMenu} />
-                  <MobileMenuLink href="/cart" label="Cart" onClick={closeMenu} />
+                  <MobileMenuLink href="/cart" label="My basket" onClick={closeMenu} />
                   <MobileMenuLink href="/checkout" label="Checkout" onClick={closeMenu} />
+                  <MobileMenuLink href="/account" label="Account" onClick={closeMenu} />
                 </div>
-                <div className="mt-4 rounded-2xl bg-white p-3">
+                <div className="mt-4 rounded-[22px] bg-[#f8fffa] p-3">
                   <div className="flex items-center gap-2 text-sm font-semibold text-[var(--brand-dark)]">
                     <MapPin size={16} className="text-[var(--brand)]" />
                     Delivering in {siteConfig.city}
                   </div>
-                  <div className="mt-3 grid gap-2">
+                  <div className="mt-3 grid grid-cols-2 gap-2">
                     {categories.map((category) => (
                       <Link
                         key={category.id}
                         href={`/shop/${category.slug}`}
                         onClick={closeMenu}
-                        className="flex items-center justify-between rounded-2xl border border-[#e4efdd] bg-white px-4 py-3 text-sm font-bold text-[var(--brand-dark)]"
+                        className="flex min-h-16 flex-col justify-between rounded-2xl border border-[#e4efdd] bg-white px-3 py-3 text-sm font-bold text-[var(--brand-dark)] shadow-[0_8px_18px_rgba(36,49,38,0.04)]"
                       >
-                        <span>{category.name}</span>
-                        <span className="text-[var(--brand)]">{category.productCount}+</span>
+                        <span className="leading-5">{category.name}</span>
+                        <span className="mt-2 text-xs font-black text-[var(--brand)]">{category.productCount}+ items</span>
                       </Link>
                     ))}
                   </div>
@@ -148,8 +143,9 @@ type MobileMenuLinkProps = {
 
 function MobileMenuLink({ href, label, onClick }: MobileMenuLinkProps) {
   return (
-    <Link href={href} onClick={onClick} className="rounded-2xl border border-[#e4efdd] bg-white px-4 py-3 text-sm font-bold text-[var(--brand-dark)]">
-      {label}
+    <Link href={href} onClick={onClick} className="flex min-h-12 items-center justify-between rounded-2xl border border-[#e4efdd] bg-white px-3 py-3 text-sm font-bold text-[var(--brand-dark)] shadow-[0_8px_18px_rgba(36,49,38,0.04)]">
+      <span>{label}</span>
+      <ChevronRight size={16} className="text-[var(--brand)]" />
     </Link>
   );
 }
