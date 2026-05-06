@@ -4,6 +4,7 @@ import { CategoryFilter } from "@/components/storefront/category-filter";
 import { CategorySpotlight } from "@/components/storefront/category-spotlight";
 import { ShopToolbar } from "@/components/storefront/shop-toolbar";
 import { getProducts } from "@/lib/catalog";
+import Link from "next/link";
 
 export const metadata = {
   title: "Shop Fresh Groceries",
@@ -28,6 +29,11 @@ async function ShopContent({ searchParams }: { searchParams: Promise<{ q?: strin
         <CategoryFilter />
         <div className="section-surface p-4 md:p-6">
           <SectionHeader eyebrow="Today" title={`${products.length} fresh items available`} />
+          <div className="mb-4 flex flex-wrap gap-2 text-xs font-black text-[var(--brand-dark)]">
+            <Link className="rounded-full bg-[#eef9e8] px-3 py-2" href="/search?q=potato">Daily sabzi</Link>
+            <Link className="rounded-full bg-[#fff5da] px-3 py-2" href="/shop/fresh-fruits">Breakfast fruit</Link>
+            <Link className="rounded-full bg-white px-3 py-2" href="/shop/cut-peeled">Prep-saving packs</Link>
+          </div>
           <ShopToolbar count={products.length} />
           <ProductGrid products={products} />
         </div>

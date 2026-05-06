@@ -6,24 +6,28 @@ import Link from "next/link";
 export function OfferBanner({ banner }: { banner: Banner }) {
   return (
     <Link className="section-surface group grid overflow-hidden md:grid-cols-[1.1fr_0.9fr]" href={banner.href}>
-      <div className="relative overflow-hidden px-5 py-7 md:px-8 md:py-10">
+      <div className="relative overflow-hidden px-4 py-5 md:px-8 md:py-10">
         <div className="absolute -right-12 top-0 size-40 rounded-full bg-[var(--accent)]/18" />
         <div className="absolute -bottom-20 left-6 size-48 rounded-full bg-[var(--brand)]/10" />
         <div className="relative max-w-xl">
-          <p className="inline-flex rounded-full bg-[#ddffd5] px-4 py-2 text-sm font-black uppercase tracking-wide text-[var(--brand-dark)]">
+          <p className="inline-flex rounded-full bg-[#ddffd5] px-3 py-1.5 text-xs font-black uppercase tracking-[0.14em] text-[var(--brand-dark)] md:px-4 md:py-2 md:text-sm">
             Limited offer
           </p>
-          <h2 className="mt-5 text-balance text-3xl font-black leading-tight text-[var(--brand-dark)] md:text-5xl">
+          <h2 className="mt-4 text-balance text-[2rem] font-black leading-[1.02] text-[var(--brand-dark)] md:mt-5 md:text-5xl">
             {banner.title}
           </h2>
-          <p className="mt-4 text-base leading-7 text-[var(--muted)] md:text-lg">{banner.subtitle}</p>
-          <span className="mt-7 inline-flex items-center gap-2 rounded-full bg-[var(--brand)] px-6 py-3 font-bold text-white shadow-[0_12px_28px_rgba(101,176,27,0.24)]">
+          <p className="mt-3 text-base leading-7 text-[var(--muted)] md:mt-4 md:text-lg">{banner.subtitle}</p>
+          <div className="mt-4 flex flex-wrap gap-2 text-[11px] font-black text-[var(--brand-dark)] md:mt-5">
+            <span className="rounded-full bg-white px-3 py-2">Repeat-basket friendly</span>
+            <span className="rounded-full bg-white px-3 py-2">Better value above Rs 499</span>
+          </div>
+          <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-[var(--brand)] px-5 py-3 text-sm font-bold text-white shadow-[0_12px_28px_rgba(101,176,27,0.24)] md:mt-7 md:px-6">
             View offer
             <ArrowRight size={17} />
           </span>
         </div>
       </div>
-      <div className="relative min-h-72 overflow-hidden bg-[#eaf8df]">
+      <div className="relative hidden min-h-72 overflow-hidden bg-[#eaf8df] md:block">
         <Image
           src={banner.image}
           alt="Fresh vegetables offer"
