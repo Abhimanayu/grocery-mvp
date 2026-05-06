@@ -40,7 +40,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <div className="mt-6 grid gap-6 lg:grid-cols-[260px_1fr]">
         <CategoryFilter activeSlug={category.slug} />
         <div className="section-surface p-4 md:p-6">
-          <SectionHeader eyebrow="Available now" title={`${products.length} ${category.name.toLowerCase()} items`} />
+          <SectionHeader eyebrow="Available now" title={`${category.name} ready today`} />
           <ShopToolbar count={products.length} />
           <ProductGrid products={products} />
         </div>

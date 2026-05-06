@@ -81,6 +81,7 @@ export function CheckoutPageClient() {
         <div>
           <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand)]">Checkout</p>
           <h1 className="mt-1 text-2xl font-black md:text-3xl">Place your order</h1>
+          <p className="mt-2 text-sm font-semibold text-[var(--muted)]">ETA 45-90 min after confirmation in active Jaipur zones.</p>
         </div>
         <CheckoutLoginStep
           onVerified={(phone) => {

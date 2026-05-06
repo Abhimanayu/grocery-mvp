@@ -5,12 +5,23 @@ import { useCart } from "@/components/storefront/cart-provider";
 import { formatPrice } from "@/lib/format";
 import type { CartItem } from "@/lib/types";
 import Image from "next/image";
+import { useState } from "react";
 
 export function CartItemRow({ item }: { item: CartItem }) {
   const { updateItem, removeItem } = useCart();
+  const [pending, setPending] = useState(false);
+
+  async function updateQuantity(value: number) {
+    setPending(true);
+    try {
+      await updateItem(item.id, value);
+    } finally {
+      setPending(false);
+    }
+  }
 
   return (
-    <div className="grid grid-cols-[68px_1fr] gap-3 rounded-xl border border-[var(--border)] bg-white p-3 md:grid-cols-[78px_1fr]">
+    <div className={`grid grid-cols-[76px_1fr] gap-3 rounded-[22px] border border-[#dce8d5] bg-white p-3 shadow-[0_10px_24px_rgba(57,64,74,0.05)] transition ${pending ? "opacity-70" : ""} md:grid-cols-[86px_1fr]`}>
       <div className="relative aspect-square overflow-hidden rounded-xl bg-[#eef3e9]">
         <Image src={item.image} alt={item.productName} fill className="object-cover" sizes="90px" />
       </div>
@@ -25,7 +36,7 @@ export function CartItemRow({ item }: { item: CartItem }) {
           </button>
         </div>
         <div className="mt-3 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <QuantityStepper value={item.quantity} max={item.maxQty} onChange={(value) => void updateItem(item.id, value)} />
+          <QuantityStepper value={item.quantity} max={item.maxQty} onChange={(value) => void updateQuantity(value)} />
           <p className="text-sm font-black md:text-base">{formatPrice(item.quantity * item.unitPrice)}</p>
         </div>
       </div>

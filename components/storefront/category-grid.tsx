@@ -25,7 +25,7 @@ export function CategoryGrid({ categories }: { categories: Category[] }) {
               <div>
                 <h3 className="text-lg font-black text-[var(--brand-dark)]">{category.name}</h3>
                 <p className="mt-1 text-sm leading-6 text-[var(--muted)]">{getCategoryHint(category.slug)}</p>
-                <p className="mt-2 text-sm font-black text-[var(--brand)]">{category.productCount}+ items</p>
+                <p className="mt-2 text-sm font-black text-[var(--brand)]">Shop curated picks</p>
               </div>
               <span className="rounded-full bg-[#eef9e8] p-2 text-[var(--brand)] transition group-hover:bg-[var(--brand)] group-hover:text-white">
                 <ArrowRight size={16} />

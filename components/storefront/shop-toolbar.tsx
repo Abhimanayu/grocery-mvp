@@ -1,6 +1,8 @@
 import { ArrowDownAZ, Clock3, MapPin, ShieldCheck } from "lucide-react";
 
 export function ShopToolbar({ count }: { count: number }) {
+  void count;
+
   return (
     <div className="mb-4 grid gap-3 xl:grid-cols-[1fr_auto]">
       <div className="flex flex-wrap gap-2 pb-1 sm:hidden">
@@ -23,7 +25,7 @@ export function ShopToolbar({ count }: { count: number }) {
         </div>
       </div>
       <p className="text-xs font-semibold leading-5 text-[var(--muted)] md:text-sm xl:col-span-2">
-        Showing {count} handpicked items. Prices and stock are checked before delivery.
+        Prices, stock, and freshness are checked before delivery.
       </p>
     </div>
   );

@@ -29,7 +29,7 @@ async function ShopContent({ searchParams }: { searchParams: Promise<{ q?: strin
       <div className="mt-6 grid gap-6 lg:grid-cols-[260px_1fr]">
         <CategoryFilter />
         <div className="section-surface p-4 md:p-6">
-          <SectionHeader eyebrow="Today" title={`${products.length} fresh items available`} />
+          <SectionHeader eyebrow="Today" title="Fresh picks ready for Jaipur" />
           <div className="mb-4 flex flex-wrap gap-2 text-xs font-black text-[var(--brand-dark)]">
             <Link className="rounded-full bg-[#eef9e8] px-3 py-2" href="/search?q=potato">Daily sabzi</Link>
             <Link className="rounded-full bg-[#fff5da] px-3 py-2" href="/shop/fresh-fruits">Breakfast fruit</Link>

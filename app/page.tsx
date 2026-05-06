@@ -4,6 +4,7 @@ import { HeroBanner } from "@/components/storefront/hero-banner";
 import { OfferBanner } from "@/components/storefront/offer-banner";
 import { ProductGrid } from "@/components/storefront/product-grid";
 import { SavingsClub } from "@/components/storefront/savings-club";
+import { TrustReviews } from "@/components/storefront/trust-reviews";
 import { SectionHeader } from "@/components/ui/section-header";
 import { getHomeData } from "@/lib/catalog";
 import { siteConfig } from "@/lib/mock-data";
@@ -57,6 +58,9 @@ export default function HomePage() {
           <OfferBanner banner={strip} />
         </section>
       ) : null}
+      <section className="container py-5 md:py-7">
+        <TrustReviews />
+      </section>
       <section className="container py-5 md:py-7">
         <div className="section-surface p-5 md:p-6 lg:p-7">
           <SectionHeader eyebrow="Today" title="Best sellers in Jaipur" action={<Link href="/shop">Shop all</Link>} />

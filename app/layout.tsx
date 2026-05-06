@@ -3,6 +3,9 @@ import { Footer } from "@/components/storefront/footer";
 import { Header } from "@/components/storefront/header";
 import { MobileBottomNav } from "@/components/storefront/mobile-bottom-nav";
 import { CartProvider } from "@/components/storefront/cart-provider";
+import { CouponPopup } from "@/components/storefront/coupon-popup";
+import { StickyCartBar } from "@/components/storefront/sticky-cart-bar";
+import { WhatsappFloatingButton } from "@/components/storefront/whatsapp-floating-button";
 import { siteConfig } from "@/lib/mock-data";
 import "./globals.css";
 
@@ -42,6 +45,9 @@ export default function RootLayout({
           <Header />
           <main>{children}</main>
           <Footer />
+          <CouponPopup />
+          <StickyCartBar />
+          <WhatsappFloatingButton />
           <MobileBottomNav />
         </CartProvider>
       </body>

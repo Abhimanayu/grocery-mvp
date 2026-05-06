@@ -4,6 +4,7 @@ import { CartItemRow } from "@/components/checkout/cart-item-row";
 import { OrderSummary } from "@/components/checkout/order-summary";
 import { useCart } from "@/components/storefront/cart-provider";
 import { EmptyState } from "@/components/ui/empty-state";
+import { Clock3, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 
 export function CartPageClient() {
@@ -44,7 +45,12 @@ export function CartPageClient() {
   return (
     <section className="container grid gap-5 py-6 pb-24 lg:grid-cols-[1fr_360px]">
       <div>
-        <h1 className="text-2xl font-black md:text-3xl">Cart</h1>
+        <p className="text-xs font-black uppercase tracking-[0.14em] text-[var(--orange)]">Review basket</p>
+        <h1 className="mt-1 text-2xl font-black md:text-3xl">Cart</h1>
+        <div className="mt-4 grid gap-2 sm:grid-cols-2">
+          <CartPromise icon={<Clock3 size={16} />} text="Delivery ETA 45-90 min" />
+          <CartPromise icon={<ShieldCheck size={16} />} text="Freshness support after delivery" />
+        </div>
         <div className="mt-4 space-y-3">
           {cart.items.map((item) => (
             <CartItemRow item={item} key={item.id} />
@@ -58,5 +64,14 @@ export function CartPageClient() {
         </Link>
       </div>
     </section>
+  );
+}
+
+function CartPromise({ icon, text }: { icon: React.ReactNode; text: string }) {
+  return (
+    <div className="flex items-center gap-2 rounded-2xl border border-[#d7edcc] bg-[#f8fffa] px-3 py-3 text-sm font-bold text-[var(--brand-dark)]">
+      <span className="text-[var(--brand)]">{icon}</span>
+      {text}
+    </div>
   );
 }
