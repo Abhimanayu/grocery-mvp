@@ -3,7 +3,7 @@ import { ArrowDownAZ, Clock3, MapPin, ShieldCheck } from "lucide-react";
 export function ShopToolbar({ count }: { count: number }) {
   return (
     <div className="mb-4 grid gap-3 xl:grid-cols-[1fr_auto]">
-      <div className="grid grid-cols-3 gap-2 sm:gap-3">
+      <div className="grid gap-2 sm:grid-cols-3 sm:gap-3">
         <TrustPill icon={<Clock3 size={17} />} title="Today delivery" text="Selected Jaipur zones" />
         <TrustPill icon={<ShieldCheck size={17} />} title="Fresh check" text="Quality packed" />
         <TrustPill icon={<MapPin size={17} />} title="302021 ready" text="Serviceable pincode" />
