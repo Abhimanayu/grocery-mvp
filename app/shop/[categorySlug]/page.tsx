@@ -4,6 +4,7 @@ import { CategoryFilter } from "@/components/storefront/category-filter";
 import { ProductGrid } from "@/components/storefront/product-grid";
 import { SectionHeader } from "@/components/ui/section-header";
 import { CategorySpotlight } from "@/components/storefront/category-spotlight";
+import { SavingsClub } from "@/components/storefront/savings-club";
 import { ShopToolbar } from "@/components/storefront/shop-toolbar";
 import { getCategoryBySlug, getProducts } from "@/lib/catalog";
 
@@ -43,6 +44,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           <ShopToolbar count={products.length} />
           <ProductGrid products={products} />
         </div>
+      </div>
+      <div className="mt-6">
+        <SavingsClub />
       </div>
     </section>
   );

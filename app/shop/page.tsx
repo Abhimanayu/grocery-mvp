@@ -2,6 +2,7 @@ import { ProductGrid } from "@/components/storefront/product-grid";
 import { SectionHeader } from "@/components/ui/section-header";
 import { CategoryFilter } from "@/components/storefront/category-filter";
 import { CategorySpotlight } from "@/components/storefront/category-spotlight";
+import { SavingsClub } from "@/components/storefront/savings-club";
 import { ShopToolbar } from "@/components/storefront/shop-toolbar";
 import { getProducts } from "@/lib/catalog";
 import Link from "next/link";
@@ -37,6 +38,9 @@ async function ShopContent({ searchParams }: { searchParams: Promise<{ q?: strin
           <ShopToolbar count={products.length} />
           <ProductGrid products={products} />
         </div>
+      </div>
+      <div className="mt-6">
+        <SavingsClub />
       </div>
     </section>
   );

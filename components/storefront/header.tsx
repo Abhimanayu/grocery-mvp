@@ -7,25 +7,48 @@ import { siteConfig } from "@/lib/mock-data";
 import { ChevronRight, MapPin, Menu, Search, ShoppingCart, UserRound, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { FormEvent, useMemo, useState } from "react";
 import { TopCategoryNav } from "@/components/storefront/top-category-nav";
 
 export function Header() {
-  const [query, setQuery] = useState("");
   const [cartOpen, setCartOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [locationLabel, setLocationLabel] = useState(`Delivering in ${siteConfig.city}`);
+  const [locationStatus, setLocationStatus] = useState("");
   const { count } = useCart();
   const router = useRouter();
+  const pathname = usePathname();
   const categories = useMemo(() => getCategories(), []);
 
   function onSearch(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const q = query.trim();
+    const form = event.currentTarget;
+    const q = String(new FormData(form).get("q") ?? "").trim();
     if (q) {
       router.push(`/search?q=${encodeURIComponent(q)}`);
+      form.reset();
       setMenuOpen(false);
     }
+  }
+
+  function useCurrentLocation() {
+    if (!("geolocation" in navigator)) {
+      setLocationStatus("Current location is not available on this browser.");
+      return;
+    }
+
+    setLocationStatus("Detecting current location...");
+    navigator.geolocation.getCurrentPosition(
+      () => {
+        setLocationLabel("Current location selected");
+        setLocationStatus("We will use your live location at checkout.");
+      },
+      () => {
+        setLocationStatus("Please allow location access to auto-pick delivery area.");
+      },
+      { enableHighAccuracy: true, timeout: 8000 }
+    );
   }
 
   function closeMenu() {
@@ -54,21 +77,26 @@ export function Header() {
           <Link className="relative order-2 h-10 w-[120px] min-w-0 flex-1 justify-self-center md:mr-2 md:h-12 md:w-[132px] md:min-w-[132px] md:flex-none" href="/" aria-label="Foydn home" onClick={closeMenu}>
             <Image src={siteConfig.logo} alt="Foydn" fill priority className="object-contain" sizes="132px" />
           </Link>
-          <button className="focus-ring hidden min-w-[210px] items-center gap-2 rounded-full border border-[#d7edcc] bg-[#f8fffa] px-4 py-2 text-left text-sm lg:flex" type="button">
+          <button className="focus-ring hidden min-w-[210px] items-center gap-2 rounded-full border border-[#d7edcc] bg-[#f8fffa] px-4 py-2 text-left text-sm lg:flex" type="button" onClick={useCurrentLocation}>
             <MapPin size={18} className="text-[var(--brand)]" />
             <span>
-              <span className="block font-semibold">Delivering in</span>
-              <span className="text-[var(--muted)]">{siteConfig.city}</span>
+              <span className="block font-semibold">{locationLabel}</span>
+              <span className="text-[var(--muted)]">Use current location</span>
             </span>
           </button>
-          <form className="relative order-4 basis-full md:order-3 md:basis-auto md:min-w-0 md:flex-1" onSubmit={onSearch}>
+          <form key={pathname} className="relative order-4 basis-full md:order-3 md:basis-auto md:min-w-0 md:flex-1" onSubmit={onSearch}>
             <Search className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[var(--muted)]" size={20} />
             <input
-              className="focus-ring h-12 w-full rounded-full border border-[#d7edcc] bg-[#f8fffa] pl-11 pr-4 text-sm shadow-inner md:h-14 md:text-base"
+              className="focus-ring h-12 w-full rounded-full border border-[#d7edcc] bg-[#f8fffa] pl-11 pr-16 text-sm shadow-inner md:h-14 md:text-base"
+              name="q"
               placeholder="Search milk, potato, apple, spinach..."
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
             />
+            <button
+              className="absolute right-1.5 top-1/2 h-9 -translate-y-1/2 rounded-full bg-[var(--brand)] px-4 text-xs font-black text-white shadow-[0_10px_20px_rgba(101,176,27,0.2)] md:h-11 md:px-5 md:text-sm"
+              type="submit"
+            >
+              Go
+            </button>
           </form>
           <Link className="focus-ring hidden size-12 place-items-center rounded-full border border-[var(--border)] bg-white md:grid" href="/account" aria-label="Account" onClick={closeMenu}>
             <UserRound size={20} />
@@ -86,10 +114,11 @@ export function Header() {
               </span>
             ) : null}
           </button>
-          <div className="order-5 flex basis-full items-center gap-2 rounded-full border border-[#e4efdd] bg-[#f8fffa] px-3 py-2.5 text-sm font-semibold text-[var(--brand-dark)] lg:hidden">
+          <button className="order-5 flex basis-full items-center gap-2 rounded-full border border-[#e4efdd] bg-[#f8fffa] px-3 py-2.5 text-left text-sm font-semibold text-[var(--brand-dark)] lg:hidden" type="button" onClick={useCurrentLocation}>
             <MapPin size={16} className="text-[var(--brand)]" />
-            Delivering in {siteConfig.city}
-          </div>
+            <span>{locationLabel}</span>
+          </button>
+          {locationStatus ? <p className="order-6 basis-full px-2 text-xs font-semibold text-[var(--muted)] lg:hidden">{locationStatus}</p> : null}
         </div>
         <TopCategoryNav />
         {menuOpen ? (
@@ -109,8 +138,12 @@ export function Header() {
                 <div className="mt-4 rounded-[22px] bg-[#f8fffa] p-3">
                   <div className="flex items-center gap-2 text-sm font-semibold text-[var(--brand-dark)]">
                     <MapPin size={16} className="text-[var(--brand)]" />
-                    Delivering in {siteConfig.city}
+                    {locationLabel}
                   </div>
+                  <button className="mt-3 w-full rounded-2xl border border-[#d7edcc] bg-white px-3 py-3 text-left text-sm font-black text-[var(--brand)]" type="button" onClick={useCurrentLocation}>
+                    Use my current location
+                  </button>
+                  {locationStatus ? <p className="mt-2 text-xs font-semibold text-[var(--muted)]">{locationStatus}</p> : null}
                   <div className="mt-3 grid grid-cols-2 gap-2">
                     {categories.map((category) => (
                       <Link

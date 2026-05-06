@@ -9,6 +9,7 @@ import { PaymentSelector } from "@/components/checkout/payment-selector";
 import { useCart } from "@/components/storefront/cart-provider";
 import { EmptyState } from "@/components/ui/empty-state";
 import type { AddressInput } from "@/lib/types";
+import { Gift, Repeat2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -92,8 +93,26 @@ export function CheckoutPageClient() {
         <PaymentSelector value={paymentMethod} onChange={setPaymentMethod} />
         <section className="card p-4">
           <h2 className="text-lg font-black md:text-xl">Coupon</h2>
+          <p className="mt-1 text-sm text-[var(--muted)]">Try FRESH50 for the demo discount flow.</p>
           <div className="mt-4">
             <CouponInput onApplied={setCouponCode} />
+          </div>
+        </section>
+        <section className="grid gap-3 sm:grid-cols-2">
+          <div className="card p-4">
+            <span className="inline-flex rounded-full bg-[#eef9e8] p-2 text-[var(--brand)]"><Repeat2 size={17} /></span>
+            <h2 className="mt-3 text-base font-black">Make this a weekly basket</h2>
+            <p className="mt-1 text-sm leading-6 text-[var(--muted)]">Useful for repeat fruit, sabzi, and breakfast orders. Owner can enable subscription plans in admin.</p>
+            <label className="mt-3 flex items-center gap-2 text-sm font-bold text-[var(--brand-dark)]">
+              <input type="checkbox" className="size-4 accent-[var(--brand)]" />
+              Remind me every week
+            </label>
+          </div>
+          <div className="card p-4">
+            <span className="inline-flex rounded-full bg-[#fff5da] p-2 text-[#9a6500]"><Gift size={17} /></span>
+            <h2 className="mt-3 text-base font-black">Refer and earn</h2>
+            <p className="mt-1 text-sm leading-6 text-[var(--muted)]">After order placement, customers can share a referral code and earn wallet credit on the next order.</p>
+            <p className="mt-3 rounded-2xl bg-[#f8fffa] px-3 py-2 text-xs font-black text-[var(--brand)]">Demo code: FOYDNFRIEND</p>
           </div>
         </section>
         {message ? <p className="rounded-md bg-red-50 p-3 text-sm font-bold text-red-700">{message}</p> : null}

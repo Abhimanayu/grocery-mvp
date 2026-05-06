@@ -8,6 +8,11 @@ import Link from "next/link";
 
 export function ProductCard({ product }: { product: Product }) {
   const variant = product.variants[0];
+  const categoryLabel = product.categoryName
+    .replace("Fresh Vegetables", "Veg")
+    .replace("Fresh Fruits", "Fruit")
+    .replace("Leafy Greens", "Leafy")
+    .replace("Cut & Peeled", "Cut");
 
   return (
     <article className="card group flex h-full flex-col overflow-hidden bg-white transition duration-200 hover:-translate-y-1 hover:border-[#cbe8bd] hover:shadow-soft">
@@ -21,37 +26,37 @@ export function ProductCard({ product }: { product: Product }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[rgba(7,47,23,0.18)] via-transparent to-transparent" />
         <OfferBadge mrp={variant.mrp} salePrice={variant.salePrice} />
-        <span className="absolute right-2 top-2 inline-flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-1.5 text-[10px] font-bold text-[var(--brand-dark)] shadow-soft md:px-3 md:py-2 md:text-xs">
-          <Sparkles size={14} className="text-[var(--brand)]" />
+        <span className="absolute right-1.5 top-1.5 inline-flex items-center gap-1 rounded-full bg-white/95 px-2 py-1 text-[9px] font-bold text-[var(--brand-dark)] shadow-soft md:right-2 md:top-2 md:px-3 md:py-2 md:text-xs">
+          <Sparkles size={12} className="text-[var(--brand)] md:size-[14px]" />
           Fresh pick
         </span>
       </Link>
-      <div className="flex flex-1 flex-col p-3 md:p-4">
-        <div className="flex items-start justify-between gap-2">
-          <p className="inline-flex max-w-[60%] rounded-full bg-[#eef9e8] px-2.5 py-1.5 text-[11px] font-bold text-[var(--brand)] md:max-w-[68%] md:px-2.5 md:py-1 md:text-xs">{product.categoryName}</p>
-          <span className="inline-flex items-center gap-1 rounded-full bg-[#fff5da] px-2 py-1.5 text-[10px] font-bold text-[#7a5300] md:px-2 md:py-1 md:text-[11px]">
+      <div className="flex flex-1 flex-col p-2.5 md:p-4">
+        <div className="flex items-start justify-between gap-1.5">
+          <p className="line-clamp-1 rounded-full bg-[#eef9e8] px-2 py-1 text-[10px] font-bold text-[var(--brand)] md:px-2.5 md:text-xs">{categoryLabel}</p>
+          <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-[#fff5da] px-1.5 py-1 text-[9px] font-bold text-[#7a5300] md:px-2 md:text-[11px]">
             <Truck size={12} />
             Today
           </span>
         </div>
         <Link href={`/product/${product.slug}`}>
-          <h3 className="mt-2 line-clamp-2 min-h-0 text-[1.7rem] font-bold leading-[1.05] text-[var(--brand-dark)] min-[420px]:min-h-10 min-[420px]:text-[14px] md:min-h-11 md:text-base">{product.name}</h3>
+          <h3 className="mt-2 line-clamp-2 min-h-9 text-sm font-black leading-tight text-[var(--brand-dark)] md:min-h-11 md:text-base">{product.name}</h3>
         </Link>
         <div className="mt-1 flex items-center justify-between gap-2">
-          <p className="text-sm text-[var(--muted)] md:text-sm">{variant.unitLabel}</p>
+          <p className="text-xs text-[var(--muted)] md:text-sm">{variant.unitLabel}</p>
           <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[var(--brand)] md:text-xs">
             <Star size={13} fill="currentColor" />
             {product.rating}
           </span>
         </div>
-        <div className="mt-2 grid gap-1 rounded-2xl bg-[#f8fbf6] p-2.5 text-[11px] font-semibold leading-4 text-[var(--muted)] min-[420px]:p-2 md:mt-3 md:gap-2 md:p-3 md:text-xs md:leading-5">
+        <div className="mt-2 grid gap-1 rounded-2xl bg-[#f8fbf6] p-2 text-[10px] font-semibold leading-4 text-[var(--muted)] md:mt-3 md:gap-2 md:p-3 md:text-xs md:leading-5">
           <span className="inline-flex items-center gap-1">
             <Clock3 size={12} />
             Morning sorted
           </span>
           <span className="text-[var(--brand)]">Clean pricing</span>
         </div>
-        <div className="mt-auto flex items-end justify-between gap-3 pt-3">
+        <div className="mt-auto flex items-end justify-between gap-2 pt-3">
           <PriceBlock mrp={variant.mrp} salePrice={variant.salePrice} />
           <AddToCartButton compact variantId={variant.id} />
         </div>

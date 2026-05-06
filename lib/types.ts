@@ -88,6 +88,8 @@ export type AddressInput = {
   line2?: string;
   city: string;
   pincode: string;
+  lat?: number;
+  lng?: number;
 };
 
 export type Order = {

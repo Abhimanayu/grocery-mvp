@@ -55,14 +55,14 @@ export const categories: Category[] = [
 ];
 
 const productImages = {
-  potato: "https://foydn.in/public/thumbnail_fullimage/1771587392.webp",
-  onion: "https://foydn.in/public/thumbnail_fullimage/1771588796.webp",
-  tomato: "https://foydn.in/public/thumbnail_fullimage/1771587435.webp",
-  carrot: "https://foydn.in/public/thumbnail_fullimage/1771588660.webp",
-  apple: "https://foydn.in/public/thumbnail_fullimage/1771585658.webp",
-  banana: "https://foydn.in/public/thumbnail_fullimage/1771582250.webp",
-  spinach: "https://foydn.in/public/thumbnail_fullimage/1771588776.webp",
-  salad: "https://foydn.in/public/thumbnail_fullimage/1772112070.webp"
+  potato: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=900&q=80",
+  onion: "https://images.unsplash.com/photo-1580201092675-a0a6a6cafbb1?auto=format&fit=crop&w=900&q=80",
+  tomato: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=900&q=80",
+  carrot: "https://images.unsplash.com/photo-1445282768818-728615cc910a?auto=format&fit=crop&w=900&q=80",
+  apple: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=900&q=80",
+  banana: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=900&q=80",
+  spinach: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=900&q=80",
+  salad: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=80"
 };
 
 export const products: Product[] = [

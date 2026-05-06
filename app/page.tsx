@@ -3,6 +3,7 @@ import { CategoryGrid } from "@/components/storefront/category-grid";
 import { HeroBanner } from "@/components/storefront/hero-banner";
 import { OfferBanner } from "@/components/storefront/offer-banner";
 import { ProductGrid } from "@/components/storefront/product-grid";
+import { SavingsClub } from "@/components/storefront/savings-club";
 import { SectionHeader } from "@/components/ui/section-header";
 import { getHomeData } from "@/lib/catalog";
 import { siteConfig } from "@/lib/mock-data";
@@ -47,6 +48,9 @@ export default function HomePage() {
           <SectionHeader eyebrow="Shop faster" title="Browse by category" action={<Link href="/shop">View all</Link>} />
           <CategoryGrid categories={data.categories} />
         </div>
+      </section>
+      <section className="container py-4 md:py-5">
+        <SavingsClub />
       </section>
       {strip ? (
         <section className="container py-5 md:py-7">
