@@ -26,19 +26,19 @@ export function ProductCard({ product }: { product: Product }) {
           Fresh pick
         </span>
       </Link>
-      <div className="flex flex-1 flex-col p-2.5 md:p-4">
+      <div className="flex flex-1 flex-col p-2 md:p-4">
         <div className="flex items-start justify-between gap-2">
-          <p className="inline-flex max-w-[72%] rounded-full bg-[#eef9e8] px-2 py-1 text-[10px] font-bold text-[var(--brand)] md:px-2.5 md:text-xs">{product.categoryName}</p>
+          <p className="inline-flex max-w-[68%] rounded-full bg-[#eef9e8] px-2 py-1 text-[10px] font-bold text-[var(--brand)] md:px-2.5 md:text-xs">{product.categoryName}</p>
           <span className="inline-flex items-center gap-1 rounded-full bg-[#fff5da] px-1.5 py-1 text-[10px] font-bold text-[#7a5300] md:px-2 md:text-[11px]">
             <Truck size={12} />
             Today
           </span>
         </div>
         <Link href={`/product/${product.slug}`}>
-          <h3 className="mt-2 line-clamp-2 min-h-9 text-[13px] font-bold leading-snug text-[var(--brand-dark)] md:min-h-11 md:text-base">{product.name}</h3>
+          <h3 className="mt-2 line-clamp-2 min-h-10 text-[14px] font-bold leading-snug text-[var(--brand-dark)] md:min-h-11 md:text-base">{product.name}</h3>
         </Link>
         <div className="mt-1 flex items-center justify-between gap-2">
-          <p className="text-xs text-[var(--muted)] md:text-sm">{variant.unitLabel}</p>
+          <p className="text-[13px] text-[var(--muted)] md:text-sm">{variant.unitLabel}</p>
           <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[var(--brand)] md:text-xs">
             <Star size={13} fill="currentColor" />
             {product.rating}
@@ -51,7 +51,7 @@ export function ProductCard({ product }: { product: Product }) {
           </span>
           <span className="text-[var(--brand)]">Clean pricing</span>
         </div>
-        <div className="mt-auto flex items-end justify-between gap-2 pt-3">
+        <div className="mt-auto flex items-end justify-between gap-2 pt-2.5">
           <PriceBlock mrp={variant.mrp} salePrice={variant.salePrice} />
           <AddToCartButton compact variantId={variant.id} />
         </div>

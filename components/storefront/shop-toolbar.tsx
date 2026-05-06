@@ -3,7 +3,7 @@ import { ArrowDownAZ, Clock3, MapPin, ShieldCheck } from "lucide-react";
 export function ShopToolbar({ count }: { count: number }) {
   return (
     <div className="mb-4 grid gap-3 xl:grid-cols-[1fr_auto]">
-      <div className="flex gap-2 overflow-x-auto sm:hidden">
+      <div className="flex flex-wrap gap-2 pb-1 sm:hidden">
         <CompactTrustPill text="Today delivery" />
         <CompactTrustPill text="Fresh check" />
         <CompactTrustPill text="302021 ready" />
@@ -14,10 +14,10 @@ export function ShopToolbar({ count }: { count: number }) {
         <TrustPill icon={<MapPin size={17} />} title="302021 ready" text="Serviceable pincode" />
       </div>
       <div className="flex flex-wrap gap-2">
-        <div className="inline-flex h-10 items-center gap-2 rounded-full border border-[#d7edcc] bg-[#f8fffa] px-3 text-xs font-bold text-[var(--muted)] md:h-11 md:px-4 md:text-sm">
+        <div className="inline-flex h-11 items-center gap-2 rounded-full border border-[#d7edcc] bg-[#f8fffa] px-4 text-sm font-bold text-[var(--muted)] md:h-11 md:px-4 md:text-sm">
           Ready for same-day dispatch
         </div>
-        <div className="inline-flex h-10 items-center gap-2 rounded-full border border-[#d7edcc] bg-white px-3 text-xs font-bold md:h-11 md:px-4 md:text-sm">
+        <div className="inline-flex h-11 items-center gap-2 rounded-full border border-[#d7edcc] bg-white px-4 text-sm font-bold md:h-11 md:px-4 md:text-sm">
           <ArrowDownAZ size={17} />
           Popular
         </div>
@@ -30,7 +30,7 @@ export function ShopToolbar({ count }: { count: number }) {
 }
 
 function CompactTrustPill({ text }: { text: string }) {
-  return <span className="min-w-max rounded-full border border-[#d7edcc] bg-white px-3 py-2 text-[11px] font-bold text-[var(--brand-dark)]">{text}</span>;
+  return <span className="min-w-max rounded-full border border-[#d7edcc] bg-white px-4 py-2.5 text-[11px] font-bold text-[var(--brand-dark)]">{text}</span>;
 }
 
 function TrustPill({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {

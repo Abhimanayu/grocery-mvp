@@ -98,10 +98,10 @@ select {
 
 @media (max-width: 768px) {
   .container {
-    width: min(100% - 24px, 1180px);
+    width: min(100% - 20px, 1180px);
   }
 
   .section-surface {
-    border-radius: 22px;
+    border-radius: 24px;
   }
 }

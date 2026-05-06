@@ -14,7 +14,7 @@ export function ProductDetails({ product }: { product: Product }) {
   const variant = product.variants.find((item) => item.id === variantId) ?? product.variants[0];
 
   return (
-    <section className="container grid gap-6 py-6 md:gap-8 md:py-8 lg:grid-cols-[0.95fr_1.05fr]">
+    <section className="container grid gap-4 py-4 pb-24 md:gap-8 md:py-8 lg:grid-cols-[0.95fr_1.05fr]">
       <div className="section-surface overflow-hidden p-3 md:p-4">
         <div className="relative aspect-square overflow-hidden rounded-[22px] bg-[#eef3e9]">
           <Image src={product.images[0]} alt={product.name} fill priority className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
@@ -25,12 +25,12 @@ export function ProductDetails({ product }: { product: Product }) {
           </div>
         </div>
       </div>
-      <div className="section-surface p-5 md:p-7 lg:p-8">
+      <div className="section-surface p-4 md:p-7 lg:p-8">
         <div className="flex flex-wrap items-center gap-2">
-          <p className="rounded-full bg-[#eef9e8] px-3 py-1 text-sm font-bold text-[var(--brand)]">{product.categoryName}</p>
-          <p className="rounded-full bg-[#fff5da] px-3 py-1 text-sm font-bold text-[#7a5300]">Same-day in Jaipur</p>
+          <p className="rounded-full bg-[#eef9e8] px-3 py-1.5 text-sm font-bold text-[var(--brand)]">{product.categoryName}</p>
+          <p className="rounded-full bg-[#fff5da] px-3 py-1.5 text-sm font-bold text-[#7a5300]">Same-day in Jaipur</p>
         </div>
-        <h1 className="mt-3 text-balance text-3xl font-black text-[var(--brand-dark)] md:text-5xl">{product.name}</h1>
+        <h1 className="mt-3 text-balance text-4xl font-black leading-none text-[var(--brand-dark)] md:text-5xl">{product.name}</h1>
         <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
           <span className="inline-flex items-center gap-1 rounded-full bg-[#e7f6df] px-3 py-1.5 font-bold text-[var(--brand)]">
             <Star size={15} fill="currentColor" />
@@ -42,8 +42,8 @@ export function ProductDetails({ product }: { product: Product }) {
             Handpicked for repeat home orders
           </span>
         </div>
-        <p className="mt-5 max-w-2xl text-[var(--muted)] md:text-lg md:leading-8">{product.description}</p>
-        <div className="mt-5 flex flex-wrap gap-2 md:hidden">
+        <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--muted)] md:text-lg md:leading-8">{product.description}</p>
+        <div className="mt-4 flex flex-wrap gap-2 md:hidden">
           <CompactFact text="Fast local delivery" />
           <CompactFact text="Freshness support" />
           <CompactFact text="Free above Rs 499" />

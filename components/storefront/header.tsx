@@ -41,9 +41,9 @@ export function Header() {
             <span className="font-semibold">{siteConfig.phone} | {siteConfig.email}</span>
           </div>
         </div>
-        <div className="container flex flex-wrap items-center gap-2 py-3 md:min-h-[76px] md:flex-nowrap md:gap-3 md:py-4">
+        <div className="container flex flex-wrap items-center gap-2 py-2.5 md:min-h-[76px] md:flex-nowrap md:gap-3 md:py-4">
           <button
-            className="focus-ring order-1 grid size-10 place-items-center rounded-full border border-[var(--border)] bg-[#f8fffa] md:size-11 lg:hidden"
+            className="focus-ring order-1 grid size-11 place-items-center rounded-full border border-[var(--border)] bg-[#f8fffa] md:size-11 lg:hidden"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((open) => !open)}
@@ -51,7 +51,7 @@ export function Header() {
           >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
-          <Link className="relative order-2 h-11 w-[110px] min-w-[110px] flex-1 md:mr-2 md:h-12 md:w-[132px] md:min-w-[132px] md:flex-none" href="/" aria-label="Foydn home" onClick={closeMenu}>
+          <Link className="relative order-2 h-10 w-[120px] min-w-0 flex-1 justify-self-center md:mr-2 md:h-12 md:w-[132px] md:min-w-[132px] md:flex-none" href="/" aria-label="Foydn home" onClick={closeMenu}>
             <Image src={siteConfig.logo} alt="Foydn" fill priority className="object-contain" sizes="132px" />
           </Link>
           <button className="focus-ring hidden min-w-[210px] items-center gap-2 rounded-full border border-[#d7edcc] bg-[#f8fffa] px-4 py-2 text-left text-sm lg:flex" type="button">
@@ -64,7 +64,7 @@ export function Header() {
           <form className="order-4 basis-full md:order-3 md:basis-auto md:min-w-0 md:flex-1" onSubmit={onSearch}>
             <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[var(--muted)]" size={20} />
             <input
-              className="focus-ring h-11 w-full rounded-full border border-[#d7edcc] bg-[#f8fffa] pl-10 pr-4 text-sm shadow-inner md:h-14 md:text-base"
+              className="focus-ring h-12 w-full rounded-full border border-[#d7edcc] bg-[#f8fffa] pl-10 pr-4 text-sm shadow-inner md:h-14 md:text-base"
               placeholder="Search milk, potato, apple, spinach..."
               value={query}
               onChange={(event) => setQuery(event.target.value)}
@@ -74,7 +74,7 @@ export function Header() {
             <UserRound size={20} />
           </Link>
           <button
-            className="focus-ring order-3 relative grid size-10 place-items-center rounded-full bg-[var(--brand)] text-white shadow-[0_12px_24px_rgba(101,176,27,0.25)] md:order-5 md:size-14"
+            className="focus-ring order-3 relative grid size-11 place-items-center rounded-full bg-[var(--brand)] text-white shadow-[0_12px_24px_rgba(101,176,27,0.25)] md:order-5 md:size-14"
             onClick={() => setCartOpen(true)}
             aria-label="Open cart"
             type="button"
@@ -86,7 +86,7 @@ export function Header() {
               </span>
             ) : null}
           </button>
-          <div className="order-5 flex basis-full items-center gap-2 rounded-full border border-[#e4efdd] bg-[#f8fffa] px-3 py-2 text-sm font-semibold text-[var(--brand-dark)] lg:hidden">
+          <div className="order-5 flex basis-full items-center gap-2 rounded-full border border-[#e4efdd] bg-[#f8fffa] px-3 py-2.5 text-sm font-semibold text-[var(--brand-dark)] lg:hidden">
             <MapPin size={16} className="text-[var(--brand)]" />
             Delivering in {siteConfig.city}
           </div>

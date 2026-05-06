@@ -7,15 +7,15 @@ export function CategorySpotlight({ category, title, subtitle }: { category?: Ca
   return (
     <section className="section-surface relative overflow-hidden">
       <div className="grid lg:grid-cols-[1fr_0.92fr]">
-        <div className="relative z-10 px-4 py-5 md:px-8 md:py-9 lg:px-10">
+        <div className="relative z-10 px-4 py-4 md:px-8 md:py-9 lg:px-10">
           <div className="max-w-3xl">
             <p className="inline-flex rounded-full bg-[#ddffd5] px-3 py-1.5 text-[11px] font-black uppercase tracking-wide text-[var(--brand-dark)] md:px-4 md:py-2 md:text-sm">
               {category ? "Fresh category" : "Grocery catalog"}
             </p>
-            <h1 className="mt-4 text-balance text-[2rem] font-black leading-tight text-[var(--brand-dark)] md:mt-5 md:text-5xl lg:text-6xl">
+            <h1 className="mt-3 text-balance text-[2.2rem] font-black leading-[1.02] text-[var(--brand-dark)] md:mt-5 md:text-5xl lg:text-6xl">
               {title}
             </h1>
-            <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--muted)] md:mt-4 md:text-lg md:leading-8">{subtitle}</p>
+            <p className="mt-3 max-w-2xl text-base leading-7 text-[var(--muted)] md:mt-4 md:text-lg md:leading-8">{subtitle}</p>
             <div className="mt-4 flex flex-wrap gap-2 sm:hidden">
               <CompactPill text="Morning sorted" />
               <CompactPill text="Same-day Jaipur" />
@@ -49,7 +49,7 @@ export function CategorySpotlight({ category, title, subtitle }: { category?: Ca
 }
 
 function CompactPill({ text }: { text: string }) {
-  return <span className="rounded-full border border-[#d7edcc] bg-white px-3 py-2 text-[11px] font-bold text-[var(--brand-dark)]">{text}</span>;
+  return <span className="rounded-full border border-[#d7edcc] bg-white px-3 py-2.5 text-[11px] font-bold text-[var(--brand-dark)]">{text}</span>;
 }
 
 function MiniStat({ icon, value, label }: { icon: ReactNode; value: string; label: string }) {
