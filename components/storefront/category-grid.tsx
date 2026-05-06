@@ -16,11 +16,11 @@ export function CategoryGrid({ categories }: { categories: Category[] }) {
             <Image src={category.image} alt={category.name} fill className="object-cover transition duration-300 group-hover:scale-105" sizes="(max-width: 768px) 50vw, 25vw" />
             <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[rgba(7,47,23,0.5)] to-transparent" />
           </div>
-          <div className="p-3.5 md:p-4">
+          <div className="p-3 md:p-4">
             <div className="flex items-start justify-between gap-3">
               <div>
-                <h3 className="font-bold text-[var(--brand-dark)]">{category.name}</h3>
-                <p className="mt-1 text-sm font-semibold text-[var(--brand)]">{category.productCount}+ items</p>
+                <h3 className="text-sm font-bold text-[var(--brand-dark)] md:text-base">{category.name}</h3>
+                <p className="mt-1 text-xs font-semibold text-[var(--brand)] md:text-sm">{category.productCount}+ items</p>
               </div>
               <span className="rounded-full bg-[#eef9e8] p-2 text-[var(--brand)] transition group-hover:bg-[var(--brand)] group-hover:text-white">
                 <ArrowRight size={16} />
