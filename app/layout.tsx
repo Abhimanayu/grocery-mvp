@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Footer } from "@/components/storefront/footer";
 import { Header } from "@/components/storefront/header";
 import { MobileBottomNav } from "@/components/storefront/mobile-bottom-nav";
@@ -22,6 +22,12 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     type: "website"
   }
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover"
 };
 
 export default function RootLayout({

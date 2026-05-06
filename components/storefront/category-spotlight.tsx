@@ -7,23 +7,23 @@ export function CategorySpotlight({ category, title, subtitle }: { category?: Ca
   return (
     <section className="section-surface relative overflow-hidden">
       <div className="grid lg:grid-cols-[1fr_0.92fr]">
-        <div className="relative z-10 px-5 py-7 md:px-8 md:py-9 lg:px-10">
+        <div className="relative z-10 px-4 py-5 md:px-8 md:py-9 lg:px-10">
           <div className="max-w-3xl">
-            <p className="inline-flex rounded-full bg-[#ddffd5] px-4 py-2 text-sm font-black uppercase tracking-wide text-[var(--brand-dark)]">
+            <p className="inline-flex rounded-full bg-[#ddffd5] px-3 py-1.5 text-[11px] font-black uppercase tracking-wide text-[var(--brand-dark)] md:px-4 md:py-2 md:text-sm">
               {category ? "Fresh category" : "Grocery catalog"}
             </p>
-            <h1 className="mt-5 text-balance text-4xl font-black leading-tight text-[var(--brand-dark)] md:text-5xl lg:text-6xl">
+            <h1 className="mt-4 text-balance text-[2rem] font-black leading-tight text-[var(--brand-dark)] md:mt-5 md:text-5xl lg:text-6xl">
               {title}
             </h1>
-            <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--muted)] md:text-lg md:leading-8">{subtitle}</p>
-            <div className="mt-7 grid gap-3 sm:grid-cols-3">
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--muted)] md:mt-4 md:text-lg md:leading-8">{subtitle}</p>
+            <div className="mt-5 grid gap-2 md:mt-7 md:gap-3 sm:grid-cols-3">
               <MiniStat icon={<Leaf size={18} />} value="Morning" label="sorted produce" />
               <MiniStat icon={<Truck size={18} />} value="Same-day" label="Jaipur dispatch" />
               <MiniStat icon={<BadgePercent size={18} />} value="Better" label="basket value" />
             </div>
           </div>
         </div>
-        <div className="relative min-h-[300px] bg-[#eaf8df]">
+        <div className="relative hidden min-h-[300px] bg-[#eaf8df] md:block">
           <Image
             src={category?.image ?? "https://foydn.in/public/thumbnail_fullimage/1776686434.jpg"}
             alt={category?.name ?? "Fresh grocery"}
@@ -45,9 +45,9 @@ export function CategorySpotlight({ category, title, subtitle }: { category?: Ca
 
 function MiniStat({ icon, value, label }: { icon: ReactNode; value: string; label: string }) {
   return (
-    <div className="rounded-2xl border border-[#e4efdd] bg-white p-4 shadow-[0_8px_20px_rgba(57,64,74,0.06)]">
+    <div className="rounded-2xl border border-[#e4efdd] bg-white p-3 shadow-[0_8px_20px_rgba(57,64,74,0.06)] md:p-4">
       <span className="text-[var(--brand)]">{icon}</span>
-      <p className="mt-2 text-lg font-black text-[var(--brand-dark)]">{value}</p>
+      <p className="mt-2 text-base font-black text-[var(--brand-dark)] md:text-lg">{value}</p>
       <p className="text-xs font-semibold text-[var(--muted)]">{label}</p>
     </div>
   );
