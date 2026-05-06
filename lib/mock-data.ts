@@ -516,7 +516,7 @@ export const banners: Banner[] = [
     id: "banner-hero",
     title: "Fresh produce that feels thoughtfully delivered",
     subtitle: "Fresh fruits, vegetables, and cut packs for Jaipur homes with same-day delivery, careful packing, and local support.",
-    image: "https://foydn.in/public/thumbnail_fullimage/1776686434.jpg",
+    image: "https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1200&q=80",
     href: "/shop",
     placement: "hero"
   },

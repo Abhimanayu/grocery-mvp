@@ -12,8 +12,8 @@ const faqs = [
 
 export default function FaqPage() {
   return (
-    <section className="container py-12 pb-24">
-      <h1 className="text-4xl font-black">FAQs</h1>
+    <section className="container py-8 pb-28 md:py-12 md:pb-24">
+      <h1 className="text-3xl font-black md:text-4xl">FAQs</h1>
       <div className="mt-6 space-y-3">
         {faqs.map(([question, answer]) => (
           <details className="card p-4" key={question}>

@@ -5,7 +5,7 @@ export function getHomeData() {
     banners,
     categories: categories.toSorted((a, b) => a.sortOrder - b.sortOrder),
     featuredProducts: products.filter((product) => product.isFeatured && product.status === "ACTIVE").slice(0, 8),
-    seasonalProducts: products.filter((product) => product.status === "ACTIVE").slice(0, 6),
+    seasonalProducts: products.filter((product) => product.status === "ACTIVE").slice(0, 4),
     blogs
   };
 }

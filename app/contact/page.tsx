@@ -8,11 +8,11 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="container py-12 pb-24">
+    <section className="container py-8 pb-28 md:py-12 md:pb-24">
       <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
           <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand)]">Support</p>
-          <h1 className="mt-2 text-4xl font-black">Contact us</h1>
+          <h1 className="mt-2 text-3xl font-black md:text-4xl">Contact us</h1>
           <p className="mt-3 text-[var(--muted)]">Need order help, bulk supply, or freshness support? Reach us here.</p>
           <div className="mt-6 space-y-3">
             <Info icon={<Phone size={18} />} text={siteConfig.phone} />

@@ -64,9 +64,9 @@ export function Header() {
             <span className="font-semibold">{siteConfig.phone} | {siteConfig.email}</span>
           </div>
         </div>
-        <div className="container flex flex-wrap items-center gap-2 py-2.5 md:min-h-[76px] md:flex-nowrap md:gap-3 md:py-4">
+        <div className="container flex flex-wrap items-center gap-2 py-2.5 max-[380px]:gap-1.5 md:min-h-[76px] md:flex-nowrap md:gap-3 md:py-4">
           <button
-            className="focus-ring order-1 grid size-11 place-items-center rounded-full border border-[var(--border)] bg-[#f8fffa] md:size-11 lg:hidden"
+            className="focus-ring order-1 grid size-11 place-items-center rounded-full border border-[var(--border)] bg-[#f8fffa] max-[380px]:size-10 md:size-11 lg:hidden"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((open) => !open)}
@@ -74,7 +74,7 @@ export function Header() {
           >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
-          <Link className="relative order-2 h-10 w-[120px] min-w-0 flex-1 justify-self-center md:mr-2 md:h-12 md:w-[132px] md:min-w-[132px] md:flex-none" href="/" aria-label="Foydn home" onClick={closeMenu}>
+          <Link className="relative order-2 h-10 w-[112px] min-w-0 flex-1 justify-self-center max-[380px]:h-9 max-[380px]:w-[96px] md:mr-2 md:h-12 md:w-[132px] md:min-w-[132px] md:flex-none" href="/" aria-label="Foydn home" onClick={closeMenu}>
             <Image src={siteConfig.logo} alt="Foydn" fill priority className="object-contain" sizes="132px" />
           </Link>
           <button className="focus-ring hidden min-w-[210px] items-center gap-2 rounded-full border border-[#d7edcc] bg-[#f8fffa] px-4 py-2 text-left text-sm lg:flex" type="button" onClick={useCurrentLocation}>
@@ -87,12 +87,12 @@ export function Header() {
           <form key={pathname} className="relative order-4 basis-full md:order-3 md:basis-auto md:min-w-0 md:flex-1" onSubmit={onSearch}>
             <Search className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[var(--muted)]" size={20} />
             <input
-              className="focus-ring h-12 w-full rounded-full border border-[#d7edcc] bg-[#f8fffa] pl-11 pr-16 text-sm shadow-inner md:h-14 md:text-base"
+              className="focus-ring h-12 w-full rounded-full border border-[#d7edcc] bg-[#f8fffa] pl-11 pr-16 text-sm shadow-inner max-[380px]:h-10 max-[380px]:pl-10 max-[380px]:pr-14 max-[380px]:text-xs md:h-14 md:text-base"
               name="q"
               placeholder="Search milk, potato, apple, spinach..."
             />
             <button
-              className="absolute right-1.5 top-1/2 h-9 -translate-y-1/2 rounded-full bg-[var(--brand)] px-4 text-xs font-black text-white shadow-[0_10px_20px_rgba(101,176,27,0.2)] md:h-11 md:px-5 md:text-sm"
+              className="absolute right-1.5 top-1/2 h-9 -translate-y-1/2 rounded-full bg-[var(--brand)] px-4 text-xs font-black text-white shadow-[0_10px_20px_rgba(101,176,27,0.2)] max-[380px]:h-8 max-[380px]:px-3 md:h-11 md:px-5 md:text-sm"
               type="submit"
             >
               Go
@@ -102,7 +102,7 @@ export function Header() {
             <UserRound size={20} />
           </Link>
           <button
-            className="focus-ring order-3 relative grid size-11 place-items-center rounded-full bg-[var(--brand)] text-white shadow-[0_12px_24px_rgba(101,176,27,0.25)] md:order-5 md:size-14"
+            className="focus-ring order-3 relative grid size-11 place-items-center rounded-full bg-[var(--brand)] text-white shadow-[0_12px_24px_rgba(101,176,27,0.25)] max-[380px]:size-10 md:order-5 md:size-14"
             onClick={() => setCartOpen(true)}
             aria-label="Open cart"
             type="button"

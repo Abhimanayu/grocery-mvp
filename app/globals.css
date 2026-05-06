@@ -20,6 +20,9 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -33,6 +36,21 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+main {
+  min-height: 60vh;
+  overflow-x: clip;
+  padding-bottom: calc(78px + env(safe-area-inset-bottom));
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
 }
 
 a {
@@ -96,6 +114,36 @@ select {
   overflow: hidden;
 }
 
+@keyframes shimmer {
+  0% {
+    background-position: -240px 0;
+  }
+  100% {
+    background-position: calc(240px + 100%) 0;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #e8efe4 25%, #f5f8f1 37%, #e8efe4 63%);
+  background-size: 400px 100%;
+  animation: shimmer 1.25s ease-in-out infinite;
+}
+
+.fade-in-up {
+  animation: fadeInUp 240ms ease-out both;
+}
+
 @media (max-width: 768px) {
   .container {
     width: min(100% - 20px, 1180px);
@@ -103,5 +151,11 @@ select {
 
   .section-surface {
     border-radius: 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  main {
+    padding-bottom: 0;
   }
 }

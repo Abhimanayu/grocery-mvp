@@ -58,7 +58,7 @@ export function AddressForm({ value, onChange }: AddressFormProps) {
         <input className="h-11 rounded-xl border border-[var(--border)] px-3 sm:col-span-2" placeholder="House / street" value={value.line1} onChange={(event) => set("line1", event.target.value)} />
         <input className="h-11 rounded-xl border border-[var(--border)] px-3" placeholder="Landmark" value={value.line2 ?? ""} onChange={(event) => set("line2", event.target.value)} />
         <input className="h-11 rounded-xl border border-[var(--border)] px-3" placeholder="City" value={value.city} onChange={(event) => set("city", event.target.value)} />
-        <input className="h-11 rounded-xl border border-[var(--border)] px-3" placeholder="Pincode" value={value.pincode} onChange={(event) => set("pincode", event.target.value)} />
+        <input className="h-11 rounded-xl border border-[var(--border)] px-3 sm:col-span-2" placeholder="Pincode" value={value.pincode} onChange={(event) => set("pincode", event.target.value)} />
       </div>
     </section>
   );

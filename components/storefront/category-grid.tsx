@@ -1,6 +1,6 @@
 import type { Category } from "@/lib/types";
+import { SafeImage } from "@/components/ui/safe-image";
 import { ArrowRight, Sparkles } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 export function CategoryGrid({ categories }: { categories: Category[] }) {
@@ -13,7 +13,7 @@ export function CategoryGrid({ categories }: { categories: Category[] }) {
           key={category.id}
         >
           <div className="relative aspect-[16/10] overflow-hidden rounded-b-[28px]">
-            <Image src={category.image} alt={category.name} fill className="object-cover transition duration-300 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 25vw" />
+            <SafeImage src={category.image} alt={category.name} fallbackLabel={category.name} fill className="object-cover transition duration-300 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 25vw" />
             <div className="absolute inset-0 bg-gradient-to-br from-[rgba(7,47,23,0.02)] via-transparent to-[rgba(248,119,35,0.12)]" />
             <div className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-white/92 px-3 py-1.5 text-[11px] font-black text-[var(--brand-dark)] shadow-soft">
               <Sparkles size={12} className="text-[var(--brand)]" />

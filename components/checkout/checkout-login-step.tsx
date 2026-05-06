@@ -50,14 +50,14 @@ export function CheckoutLoginStep({ onVerified }: CheckoutLoginStepProps) {
       <p className="mt-1 text-sm text-[var(--muted)]">Cart stays guest-friendly. We verify phone only before order placement.</p>
       <div className="mt-4 grid gap-3 sm:grid-cols-[1fr_auto]">
         <input className="h-11 rounded-md border border-[var(--border)] px-3" placeholder="10 digit mobile number" value={phone} onChange={(event) => setPhone(event.target.value)} />
-        <button className="rounded-md bg-[var(--brand)] px-5 font-bold text-white" type="button" onClick={sendOtp}>
+        <button className="h-11 rounded-md bg-[var(--brand)] px-5 font-bold text-white" type="button" onClick={sendOtp}>
           Send OTP
         </button>
       </div>
       {sent ? (
         <div className="mt-3 grid gap-3 sm:grid-cols-[1fr_auto]">
           <input className="h-11 rounded-md border border-[var(--border)] px-3" placeholder="Enter OTP" value={otp} onChange={(event) => setOtp(event.target.value)} />
-          <button className="rounded-md border border-[var(--border)] px-5 font-bold" type="button" onClick={verify}>
+          <button className="h-11 rounded-md border border-[var(--border)] px-5 font-bold" type="button" onClick={verify}>
             Verify OTP
           </button>
         </div>

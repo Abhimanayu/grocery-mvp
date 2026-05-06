@@ -5,6 +5,7 @@ import { OfferBanner } from "@/components/storefront/offer-banner";
 import { ProductGrid } from "@/components/storefront/product-grid";
 import { SavingsClub } from "@/components/storefront/savings-club";
 import { TrustReviews } from "@/components/storefront/trust-reviews";
+import { WhyChooseUs } from "@/components/storefront/why-choose-us";
 import { SectionHeader } from "@/components/ui/section-header";
 import { getHomeData } from "@/lib/catalog";
 import { siteConfig } from "@/lib/mock-data";
@@ -53,6 +54,9 @@ export default function HomePage() {
       <section className="container py-4 md:py-5">
         <SavingsClub />
       </section>
+      <section className="container py-5 md:py-7">
+        <WhyChooseUs />
+      </section>
       {strip ? (
         <section className="container py-5 md:py-7">
           <OfferBanner banner={strip} />
@@ -76,7 +80,7 @@ export default function HomePage() {
         <div className="grid gap-4 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="section-surface p-5 md:p-6 lg:p-7">
             <SectionHeader eyebrow="Seasonal" title="Fresh picks for this week" action={<Link href="/shop?sort=seasonal">Explore</Link>} />
-            <ProductGrid products={data.seasonalProducts} />
+            <ProductGrid className="md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2" products={data.seasonalProducts} />
           </div>
           <div className="section-surface p-5 md:p-6 lg:p-7">
             <SectionHeader eyebrow="Support" title="Helpful before checkout" />

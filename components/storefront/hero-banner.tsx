@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import type { Banner } from "@/lib/types";
-import { ArrowRight, ShieldCheck, Sparkles, Truck } from "lucide-react";
+import { ArrowRight, Clock3, ShieldCheck, Truck } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -19,6 +19,16 @@ export function HeroBanner({ banner }: { banner: Banner }) {
                 {banner.title}
               </h1>
               <p className="mt-3 max-w-xl text-base leading-7 text-[var(--muted)] md:mt-4 md:text-lg md:leading-8">{banner.subtitle}</p>
+              <div className="mt-4 overflow-hidden rounded-[24px] border border-[#d7edcc] bg-[#eef9e8] lg:hidden">
+                <div className="relative aspect-[16/10]">
+                  <Image src={banner.image} alt="Fresh grocery delivery" fill priority className="object-cover" sizes="100vw" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[rgba(7,47,23,0.24)] via-transparent to-transparent" />
+                  <div className="absolute bottom-3 left-3 rounded-2xl bg-white/94 px-3 py-2 shadow-soft backdrop-blur">
+                    <span className="block text-xs font-black text-[var(--brand)]">Real fresh produce</span>
+                    <span className="block text-sm font-black text-[var(--brand-dark)]">Packed for Jaipur homes</span>
+                  </div>
+                </div>
+              </div>
               <div className="mt-5 flex flex-wrap gap-2.5 md:mt-7 md:gap-3">
                 <Link
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-5 py-3 text-sm font-bold text-black shadow-[0_10px_25px_rgba(255,171,16,0.3)] md:px-6 md:text-base"
@@ -33,8 +43,8 @@ export function HeroBanner({ banner }: { banner: Banner }) {
               </div>
               <div className="mt-5 grid gap-2.5 sm:mt-7 sm:grid-cols-3 md:gap-3">
                 <HeroStat icon={<Truck size={16} />} title="Same-day" text="Jaipur dispatch" />
-                <HeroStat icon={<ShieldCheck size={16} />} title="Packed well" text="Handled with care" />
-                <HeroStat icon={<Sparkles size={16} />} title="Free delivery" text="Above Rs 499" />
+                <HeroStat icon={<Clock3 size={16} />} title="ETA" text="45-90 minutes" />
+                <HeroStat icon={<ShieldCheck size={16} />} title="Freshness" text="Return support" />
               </div>
             </div>
           </div>

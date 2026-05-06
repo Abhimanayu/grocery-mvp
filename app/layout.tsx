@@ -43,7 +43,7 @@ export default function RootLayout({
       <body>
         <CartProvider>
           <Header />
-          <main>{children}</main>
+          <main className="min-h-[60vh] overflow-x-clip pb-[calc(78px+env(safe-area-inset-bottom))] md:pb-0">{children}</main>
           <Footer />
           <CouponPopup />
           <StickyCartBar />

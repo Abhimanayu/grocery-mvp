@@ -1,9 +1,9 @@
 import { AddToCartButton } from "@/components/storefront/add-to-cart-button";
 import { OfferBadge } from "@/components/storefront/offer-badge";
 import { PriceBlock } from "@/components/storefront/price-block";
+import { SafeImage } from "@/components/ui/safe-image";
 import type { Product } from "@/lib/types";
-import { Clock3, Sparkles, Star, Truck } from "lucide-react";
-import Image from "next/image";
+import { Clock3, Flame, Sparkles, Star, Truck } from "lucide-react";
 import Link from "next/link";
 
 export function ProductCard({ product }: { product: Product }) {
@@ -13,19 +13,28 @@ export function ProductCard({ product }: { product: Product }) {
     .replace("Fresh Fruits", "Fruit")
     .replace("Leafy Greens", "Leafy")
     .replace("Cut & Peeled", "Cut");
+  const isFastSelling = product.isFeatured || product.reviewCount >= 50;
+  const onlyFewLeft = variant.stockQty <= 35;
 
   return (
     <article className="card group flex h-full flex-col overflow-hidden bg-white transition duration-200 hover:-translate-y-1 hover:border-[#cbe8bd] hover:shadow-soft">
       <Link className="relative block aspect-square bg-[#f8fffa]" href={`/product/${product.slug}`}>
-        <Image
+        <SafeImage
           src={product.images[0]}
           alt={product.name}
+          fallbackLabel={product.name}
           fill
           className="object-cover transition duration-300 group-hover:scale-105"
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[rgba(7,47,23,0.18)] via-transparent to-transparent" />
         <OfferBadge mrp={variant.mrp} salePrice={variant.salePrice} />
+        {isFastSelling ? (
+          <span className="absolute left-1.5 top-10 inline-flex items-center gap-1 rounded-full bg-[#fff5da] px-2 py-1 text-[9px] font-black text-[#7a5300] shadow-soft md:left-2 md:top-12 md:text-xs">
+            <Flame size={11} fill="currentColor" />
+            Fast selling
+          </span>
+        ) : null}
         <span className="absolute right-1.5 top-1.5 inline-flex items-center gap-1 rounded-full bg-white/95 px-2 py-1 text-[9px] font-bold text-[var(--brand-dark)] shadow-soft md:right-2 md:top-2 md:px-3 md:py-2 md:text-xs">
           <Sparkles size={12} className="text-[var(--brand)] md:size-[14px]" />
           Fresh pick
@@ -54,11 +63,15 @@ export function ProductCard({ product }: { product: Product }) {
             <Clock3 size={12} />
             Morning sorted
           </span>
-          <span className="text-[var(--brand)]">Clean pricing</span>
+          <span className="text-[var(--brand)]">{onlyFewLeft ? "Only few left" : "Clean pricing"}</span>
         </div>
-        <div className="mt-auto flex items-end justify-between gap-2 pt-3">
-          <PriceBlock mrp={variant.mrp} salePrice={variant.salePrice} />
-          <AddToCartButton compact variantId={variant.id} />
+        <div className="mt-auto flex flex-col items-stretch gap-2 pt-3 sm:flex-row sm:items-end sm:justify-between">
+          <div className="min-w-0 flex-1">
+            <PriceBlock mrp={variant.mrp} salePrice={variant.salePrice} />
+          </div>
+          <div className="flex w-full justify-end sm:w-auto">
+            <AddToCartButton compact variantId={variant.id} />
+          </div>
         </div>
       </div>
     </article>

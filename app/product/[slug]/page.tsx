@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ProductDetails } from "@/components/storefront/product-details";
 import { ProductGrid } from "@/components/storefront/product-grid";
+import { FrequentlyBoughtTogether } from "@/components/storefront/frequently-bought-together";
 import { SectionHeader } from "@/components/ui/section-header";
 import { getProductBySlug, getProducts } from "@/lib/catalog";
 import { siteConfig } from "@/lib/mock-data";
@@ -60,7 +61,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <ProductDetails product={product} />
       <section className="container py-8 pb-24">
-        <div className="section-surface p-5 md:p-6 lg:p-7">
+        <FrequentlyBoughtTogether products={related} />
+        <div className="mt-6 section-surface p-5 md:p-6 lg:p-7">
           <SectionHeader eyebrow="More like this" title="Related products" />
           <ProductGrid products={related} />
         </div>

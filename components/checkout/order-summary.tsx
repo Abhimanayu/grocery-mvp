@@ -30,8 +30,8 @@ export function OrderSummary({ cart, couponDiscount }: { cart: CartSummary; coup
 function Row({ label, value, strong }: { label: string; value: string; strong?: boolean }) {
   return (
     <div className={`flex justify-between gap-4 ${strong ? "text-base font-black md:text-lg" : "text-sm"}`}>
-      <span className="text-[var(--muted)]">{label}</span>
-      <span className="font-bold text-right">{value}</span>
+      <span className={strong ? "text-[var(--brand-dark)]" : "text-[var(--muted)]"}>{label}</span>
+      <span className={`text-right ${strong ? "text-[var(--brand-dark)]" : "font-bold"}`}>{value}</span>
     </div>
   );
 }

@@ -14,7 +14,7 @@ export function StickyCartBar() {
   if (!cart?.items.length || pathname.startsWith("/cart") || pathname.startsWith("/checkout")) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-[72px] z-40 px-3 pb-[env(safe-area-inset-bottom)] md:hidden">
+    <div className="fixed inset-x-0 bottom-[76px] z-40 px-3 pb-[env(safe-area-inset-bottom)] md:hidden">
       <div className="mx-auto max-w-md rounded-[24px] border border-[#d7edcc] bg-white/96 p-3 shadow-[0_-12px_34px_rgba(36,49,38,0.16)] backdrop-blur">
         <MinimumOrderProgress cart={cart} compact />
         <div className="mt-3 flex items-center gap-3">
